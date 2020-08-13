@@ -1,5 +1,7 @@
 export const extend = (a, b) => Object.assign({}, a, b);
 
+export const reduceGenresList = (genres) => genres.length >= 10 ? genres : genres.slice(0, 10);
+
 export const getGenresList = (movies) => {
   const genres = [...new Set(movies.map((movie) => movie.genre))].sort();
   genres.unshift(`All genres`);

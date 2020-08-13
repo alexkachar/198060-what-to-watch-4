@@ -4,17 +4,17 @@ import {getMovies} from '../data/selectors';
 
 const NAME_SPACE = NameSpace.UI;
 
-export const getGenre = (state) => {
-  return state[NAME_SPACE].genre;
+export const getSelectedGenre = (state) => {
+  return state[NAME_SPACE].selectedGenre;
 };
 
 export const filterMovies = createSelector(
-    [getGenre, getMovies],
-    (genre, movies) => {
-      if (genre === `All genres`) {
+    [getSelectedGenre, getMovies],
+    (selectedGenre, movies) => {
+      if (selectedGenre === `All genres`) {
         return movies;
       }
 
-      return movies.filter((movie) => movie.genre === genre);
+      return movies.filter((movie) => movie.genre === selectedGenre);
     }
 );

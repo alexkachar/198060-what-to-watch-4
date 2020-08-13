@@ -8,11 +8,12 @@ import Movie from '../../interfaces/movie';
 interface Props {
   movies: Movie[];
   genres: string[];
+  selectedGenre: string;
   onGenreSelect: (genre: string) => void;
 }
 
 const Main = (props: Props) => {
-  const {movies, genres, onGenreSelect} = props;
+  const {movies, genres, onGenreSelect, selectedGenre} = props;
   return (
     <div>
       <MovieCardBig />
@@ -20,6 +21,7 @@ const Main = (props: Props) => {
         <Catalog
           movies={movies}
           genres={genres}
+          selectedGenre={selectedGenre}
           onGenreSelect={onGenreSelect}
         />
         <Footer />

@@ -5,6 +5,7 @@ import {connect} from 'react-redux';
 import {AppRoutes} from '../../constants';
 import {filterMovies} from '../../store/reducers/ui/selectors';
 import {getGenres} from '../../store/reducers/data/selectors';
+import {getSelectedGenre} from '../../store/reducers/ui/selectors';
 import Movie from '../../interfaces/movie';
 import Main from '../main/main';
 import MoviePage from '../movie-page/movie-page';
@@ -12,11 +13,12 @@ import UiActionCreator from '../../store/actions/ui/ui';
 interface Props {
   movies: Movie[];
   genres: string[];
+  selectedGenre: string;
   onGenreSelect: (genre: string) => void;
 }
 
 const App = (props: Props) => {
-  const {movies, genres, onGenreSelect} = props;
+  const {movies, genres, onGenreSelect, selectedGenre} = props;
   return (
     <BrowserRouter>
       <Switch>
@@ -26,6 +28,7 @@ const App = (props: Props) => {
               <Main
                 movies={movies}
                 genres={genres}
+                selectedGenre={selectedGenre}
                 onGenreSelect={onGenreSelect}
               />
             );
@@ -47,7 +50,8 @@ const App = (props: Props) => {
 
 const mapStateToProps = (state) => ({
   movies: filterMovies(state),
-  genres: getGenres(state)
+  genres: getGenres(state),
+  selectedGenre: getSelectedGenre(state)
 });
 
 const mapDispatchToProps = (dispatch) => ({

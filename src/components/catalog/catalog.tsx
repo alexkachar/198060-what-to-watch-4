@@ -7,16 +7,18 @@ import Movie from '../../interfaces/movie';
 interface Props {
   movies: Movie[];
   genres: string[];
+  selectedGenre: string;
   onGenreSelect: (genre: string) => void;
 }
 
 const Catalog = (props: Props) => {
-  const {movies, genres, onGenreSelect} = props;
+  const {movies, genres, onGenreSelect, selectedGenre} = props;
   return (
     <section className="catalog">
       <h2 className="catalog__title visually-hidden">Catalog</h2>
       <GenreList
         genres={genres}
+        selectedGenre={selectedGenre}
         onGenreSelect={onGenreSelect}
       />
       <MoviesList movies={movies}/>
