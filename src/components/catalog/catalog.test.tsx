@@ -10,6 +10,7 @@ it(`Catalog renders correctly`, () => {
         <Catalog
           movies={MOCK_MOVIES}
           genres={MOCK_GENRES}
+          onGenreSelect={jest.fn()}
         />, {
           createNodeMock: () => document.createElement(`div`)
         })

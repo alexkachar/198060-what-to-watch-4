@@ -8,14 +8,15 @@ import {getGenres} from '../../store/reducers/data/selectors';
 import Movie from '../../interfaces/movie';
 import Main from '../main/main';
 import MoviePage from '../movie-page/movie-page';
-
+import UiActionCreator from '../../store/actions/ui/ui';
 interface Props {
   movies: Movie[];
   genres: string[];
+  onGenreSelect: (genre: string) => void;
 }
 
 const App = (props: Props) => {
-  const {movies, genres} = props;
+  const {movies, genres, onGenreSelect} = props;
   return (
     <BrowserRouter>
       <Switch>
@@ -25,6 +26,7 @@ const App = (props: Props) => {
               <Main
                 movies={movies}
                 genres={genres}
+                onGenreSelect={onGenreSelect}
               />
             );
           }}
@@ -48,5 +50,13 @@ const mapStateToProps = (state) => ({
   genres: getGenres(state)
 });
 
+const mapDispatchToProps = (dispatch) => ({
+
+  onGenreSelect(genre: string) {
+    dispatch(UiActionCreator.selectGenre(genre));
+  },
+
+}); 
+
 export {App};
-export default connect(mapStateToProps, null)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(App);

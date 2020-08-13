@@ -2,7 +2,7 @@ import {extend} from '../../../utils';
 import {ActionTypes} from '../../actions/ui/ui';
 
 const initialState = {
-  genre: `All genres`,
+  selectedGenre: `All genres`,
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -10,7 +10,7 @@ const reducer = (state = initialState, action = {}) => {
 
     case ActionTypes.SELECT_GENRE:
       return extend(state, {
-        genre: action.payload
+        selectedGenre: action.payload
       });
 
   }

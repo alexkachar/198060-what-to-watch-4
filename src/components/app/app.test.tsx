@@ -11,6 +11,7 @@ it(`App renders correctly`, () => {
         <App
           movies={MOCK_MOVIES}
           genres={MOCK_GENRES}
+          onGenreSelect={jest.fn()}
         />, {
           createNodeMock: () => document.createElement(`div`)
         })

@@ -10,6 +10,7 @@ it(`Main renders correctly`, () => {
         <Main
           movies={MOCK_MOVIES}
           genres={MOCK_GENRES}
+          onGenreSelect={jest.fn()}
         />, {
           createNodeMock: () => document.createElement(`div`)
         })
