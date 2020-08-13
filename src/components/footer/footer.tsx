@@ -13,6 +13,6 @@ const Footer = () => (
       <p>© 2019 What to watch Ltd.</p>
     </div>
   </footer>
-)
+);
 
 export default Footer;

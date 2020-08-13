@@ -8,7 +8,7 @@ const Main = () => (
   <div>
     <MovieCardBig />
     <div className="page-content">
-      <Catalog /> 
+      <Catalog />
       <Footer />
     </div>
   </div>
