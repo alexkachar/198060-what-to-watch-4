@@ -9,12 +9,20 @@ import Main from '../main/main';
 const App = () => (
   <BrowserRouter>
     <Switch>
-      <Route exact path={AppRoutes.MAIN}>
-        <Main />
-      </Route>
-      <Route exact path={AppRoutes.DEV_MOVIE}>
-        <MoviePage />
-      </Route>
+      <Route exact path={AppRoutes.MAIN}
+        render={() => {
+          return (
+            <Main />
+          );
+        }}
+      />
+      <Route exact path={AppRoutes.MOVIE}
+        render={() => {
+          return (
+            <MoviePage />
+          );
+        }}
+      />
     </Switch>
   </BrowserRouter>
 );
