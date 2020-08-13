@@ -1,12 +1,11 @@
-
 import * as React from 'react';
 import * as renderer from 'react-test-renderer';
-import App from './app';
+import MovieCardBig from './movie-card-big';
 
-it(`App renders correctly`, () => {
+it(`MovieCardBig renders correctly`, () => {
   const tree = renderer
     .create(
-        <App />, {
+        <MovieCardBig />, {
           createNodeMock: () => document.createElement(`div`)
         })
     .toJSON();

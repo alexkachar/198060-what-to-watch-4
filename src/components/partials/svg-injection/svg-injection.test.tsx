@@ -1,12 +1,11 @@
-
 import * as React from 'react';
 import * as renderer from 'react-test-renderer';
-import App from './app';
+import SvgInjection from './svg-injection';
 
-it(`App renders correctly`, () => {
+it(`SvgInjection renders correctly`, () => {
   const tree = renderer
     .create(
-        <App />, {
+        <SvgInjection />, {
           createNodeMock: () => document.createElement(`div`)
         })
     .toJSON();
