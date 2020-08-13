@@ -60,7 +60,7 @@ const mapDispatchToProps = (dispatch) => ({
     dispatch(UiActionCreator.selectGenre(genre));
   },
 
-}); 
+});
 
 export {App};
 export default connect(mapStateToProps, mapDispatchToProps)(App);

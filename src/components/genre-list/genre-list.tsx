@@ -13,14 +13,14 @@ const GenreList = (props: Props) => {
     <ul className="catalog__genres-list">
       {reducedGenres.map((genre) => (
         <li
-          className={`catalog__genres-item ${selectedGenre === genre ? `catalog__genres-item--active` : null}`} 
+          className={`catalog__genres-item ${selectedGenre === genre ? `catalog__genres-item--active` : null}`}
           key={genre}
         >
           <a className="catalog__genres-link"
             onClick={(evt) => {
               evt.preventDefault();
               onGenreSelect(genre);
-          }}>
+            }}>
             {genre}
           </a>
         </li>
