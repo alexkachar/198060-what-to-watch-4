@@ -2,7 +2,8 @@ import MockAdapter from 'axios-mock-adapter';
 import createAPI from '../../../api';
 import Operation from './data';
 import {ActionTypes} from '../../actions/data/data';
-import MOCK_MOVIES from '../../../test-data/mock-movies';
+import RAW_MOVIES from '../../../test-data/mock-movies';
+import {formatMovies} from '../../../utils';
 
 const api = createAPI(jest.fn());
 
@@ -14,7 +15,7 @@ describe(`loadMovies operation works correctly`, () => {
 
     apiMock
       .onGet(`/films`)
-      .reply(200, MOCK_MOVIES);
+      .reply(200, RAW_MOVIES);
 
     return dataLoader(dispatch, jest.fn(), api)
       .then(() => {
@@ -26,7 +27,7 @@ describe(`loadMovies operation works correctly`, () => {
       },
       {
         type: ActionTypes.GET_MOVIES,
-        payload: MOCK_MOVIES
+        payload: formatMovies(RAW_MOVIES)
       }
       );
   });

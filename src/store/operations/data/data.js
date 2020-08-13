@@ -1,5 +1,6 @@
 
 import DataActionCreator from '../../actions/data/data';
+import {formatMovies} from '../../../utils';
 
 const Operation = {
   loadMovies: () => (dispatch, getState, api) => {
@@ -7,7 +8,7 @@ const Operation = {
     return api.get(`/films`)
       .then(
           (response) => {
-            dispatch(DataActionCreator.getMovies(response.data));
+            dispatch(DataActionCreator.getMovies(formatMovies(response.data)));
             dispatch(DataActionCreator.setLoadingFlag(false));
           });
   }
