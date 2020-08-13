@@ -1,11 +1,11 @@
 import * as React from 'react';
 import * as renderer from 'react-test-renderer';
-import Catalog from './catalog';
+import Footer from './footer';
 
-it(`Catalog renders correctly`, () => {
+it(`Footer renders correctly`, () => {
   const tree = renderer
     .create(
-        <Catalog />, {
+        <Footer />, {
           createNodeMock: () => document.createElement(`div`)
         })
     .toJSON();
