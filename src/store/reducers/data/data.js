@@ -4,7 +4,6 @@ import {ActionTypes} from '../../actions/data/data';
 const initialState = {
   movies: [],
   promoMovie: null,
-  movieId: null,
   loading: true
 };
 
@@ -19,11 +18,6 @@ const reducer = (state = initialState, action = {}) => {
     case ActionTypes.GET_PROMO_MOVIE:
       return extend(state, {
         promoMovie: action.payload
-      });
-
-    case ActionTypes.SET_MOVIE_ID:
-      return extend(state, {
-        movieId: action.payload
       });
 
     case ActionTypes.SET_LOADING_FLAG:

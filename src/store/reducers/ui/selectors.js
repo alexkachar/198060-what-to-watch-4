@@ -9,6 +9,10 @@ export const getSelectedGenre = (state) => {
   return state[NAME_SPACE].selectedGenre;
 };
 
+export const getMovieId = (state) => {
+  return state[NAME_SPACE].movieId;
+};
+
 export const filterMovies = createSelector(
     [getSelectedGenre, getMovies],
     (selectedGenre, movies) => {
@@ -17,5 +21,12 @@ export const filterMovies = createSelector(
       }
 
       return filterMoviesByGenre(movies, selectedGenre);
+    }
+);
+
+export const getMovieById = createSelector(
+    [getMovies, getMovieId],
+    (movies, movieId) => {
+      return movies.find((movie) => movie.id === movieId);
     }
 );

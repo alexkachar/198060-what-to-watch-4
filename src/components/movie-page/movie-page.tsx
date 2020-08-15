@@ -5,11 +5,15 @@ import SvgInjection from '../partials/svg-injection/svg-injection';
 import Footer from '../footer/footer';
 import MoviesList from '../movies-list/movies-list';
 import Header from '../header/header';
-import Movie from '../../interfaces/movie';
-import {getMovies, getMovieById} from '../../store/reducers/data/selectors';
+
+import {getMovies} from '../../store/reducers/data/selectors';
+import {getMovieById} from '../../store/reducers/ui/selectors';
+import UiActionCreator from '../../store/actions/ui/ui';
+
 import {reduceMovies, filterMoviesByGenre, excludeMovieById} from '../../utils';
-import DataActionCreator from '../../store/actions/data/data';
 import {RECOMENDED_MOVIES_LIMIT} from '../../constants';
+
+import Movie from '../../interfaces/movie';
 interface Props {
   movieId: string;
   movie: Movie;
@@ -161,7 +165,7 @@ const mapDispatchToProps = (dispatch) => ({
 
   onSetMovieId: (movieId) => {
     const newMovieId = parseInt(movieId, 10);
-    dispatch(DataActionCreator.setMovieId(newMovieId));
+    dispatch(UiActionCreator.setMovieId(newMovieId));
   },
 
 });

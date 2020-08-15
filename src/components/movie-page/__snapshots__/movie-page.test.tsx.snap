@@ -112,6 +112,11 @@ exports[`MoviePage renders correctly 1`] = `
   </div>
   <section
     className="movie-card movie-card--full"
+    style={
+      Object {
+        "backgroundColor": "#ffffff",
+      }
+    }
   >
     <div
       className="movie-card__hero"
@@ -121,7 +126,7 @@ exports[`MoviePage renders correctly 1`] = `
       >
         <img
           alt="The Grand Budapest Hotel"
-          src="img/bg-the-grand-budapest-hotel.jpg"
+          src="img/the-grand-budapest-hotel-bg.jpg"
         />
       </div>
       <h1
@@ -187,7 +192,7 @@ exports[`MoviePage renders correctly 1`] = `
             <span
               className="movie-card__genre"
             >
-              Drama
+              Comedy
             </span>
             <span
               className="movie-card__year"
@@ -305,7 +310,7 @@ exports[`MoviePage renders correctly 1`] = `
             <div
               className="movie-rating__score"
             >
-              8,9
+              8.9
             </div>
             <p
               className="movie-rating__meta"
@@ -328,9 +333,6 @@ exports[`MoviePage renders correctly 1`] = `
             <p>
               In the 1930s, the Grand Budapest Hotel is a popular European ski resort, presided over by concierge Gustave H. (Ralph Fiennes). Zero, a junior lobby boy, becomes Gustave's friend and protege.
             </p>
-            <p>
-              Gustave prides himself on providing first-class service to the hotel's guests, including satisfying the sexual needs of the many elderly women who stay there. When one of Gustave's lovers dies mysteriously, Gustave finds himself the recipient of a priceless painting and the chief suspect in her murder.
-            </p>
             <p
               className="movie-card__director"
             >
@@ -342,7 +344,7 @@ exports[`MoviePage renders correctly 1`] = `
               className="movie-card__starring"
             >
               <strong>
-                Starring: Bill Murray, Edward Norton, Jude Law, Willem Dafoe and other
+                Starring: Bill Murray, Edward Norton, Jude Law, Willem Dafoe, Saoirse Ronan
               </strong>
             </p>
           </div>
@@ -385,54 +387,6 @@ exports[`MoviePage renders correctly 1`] = `
               href="movie-page.html"
             >
               The Grand Budapest Hotel
-            </a>
-          </h3>
-        </article>
-        <article
-          className="small-movie-card catalog__movies-card"
-        >
-          <div
-            className="small-movie-card__image"
-          >
-            <img
-              alt="Moonrise Kingdom"
-              height={175}
-              src="https://htmlacademy-react-3.appspot.com/wtw/static/film/preview/moonrise-kingdom.jpg"
-              width={280}
-            />
-          </div>
-          <h3
-            className="small-movie-card__title"
-          >
-            <a
-              className="small-movie-card__link"
-              href="movie-page.html"
-            >
-              Moonrise Kingdom
-            </a>
-          </h3>
-        </article>
-        <article
-          className="small-movie-card catalog__movies-card"
-        >
-          <div
-            className="small-movie-card__image"
-          >
-            <img
-              alt="Fantastic Beasts: The Crimes of Grindelwald"
-              height={175}
-              src="https://htmlacademy-react-3.appspot.com/wtw/static/film/preview/fantastic-beasts-the-crimes-of-grindelwald.jpg"
-              width={280}
-            />
-          </div>
-          <h3
-            className="small-movie-card__title"
-          >
-            <a
-              className="small-movie-card__link"
-              href="movie-page.html"
-            >
-              Fantastic Beasts: The Crimes of Grindelwald
             </a>
           </h3>
         </article>
