@@ -1,6 +1,7 @@
 export const ActionTypes = {
   GET_MOVIES: `GET_MOVIES`,
-  SET_LOADING_FLAG: `SET_LOADING_FLAG`
+  GET_PROMO_MOVIE: `GET_PROMO_MOVIE`,
+  SET_LOADING_FLAG: `SET_LOADING_FLAG`,
 };
 
 const ActionCreator = {
@@ -8,6 +9,11 @@ const ActionCreator = {
   getMovies: (movies) => ({
     type: ActionTypes.GET_MOVIES,
     payload: movies
+  }),
+
+  getPromoMovie: (movie) => ({
+    type: ActionTypes.GET_PROMO_MOVIE,
+    payload: movie
   }),
 
   setLoadingFlag: (flag) => ({

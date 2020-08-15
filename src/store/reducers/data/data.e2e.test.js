@@ -17,15 +17,28 @@ describe(`Data reducer work correctly`, () => {
     });
   });
 
-  it(`Should change loading with given flag `, () => {
+  it(`Should change promoMovie with given value`, () => {
     const state2 = {
+      promoMovie: null
+    };
+    const action = {
+      type: ActionTypes.GET_PROMO_MOVIE,
+      payload: MOCK_MOVIES[0]
+    };
+    expect(reducer(state2, action)).toMatchObject({
+      promoMovie: MOCK_MOVIES[0]
+    });
+  });
+
+  it(`Should change loading with given flag `, () => {
+    const state3 = {
       loading: true
     };
     const action = {
       type: ActionTypes.SET_LOADING_FLAG,
       payload: false
     };
-    expect(reducer(state2, action)).toMatchObject({
+    expect(reducer(state3, action)).toMatchObject({
       loading: false
     });
   });

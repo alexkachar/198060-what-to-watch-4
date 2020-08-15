@@ -9,6 +9,13 @@ describe(`Data action creator work correctly`, () => {
     });
   });
 
+  it(`Action creator for getPromoMovie returns correct action`, () => {
+    expect(ActionCreator.getPromoMovie(MOCK_MOVIES[0])).toEqual({
+      type: ActionTypes.GET_PROMO_MOVIE,
+      payload: MOCK_MOVIES[0]
+    });
+  });
+
   it(`Action creator for setLoadingFlag returns correct action`, () => {
     expect(ActionCreator.setLoadingFlag(false)).toEqual({
       type: ActionTypes.SET_LOADING_FLAG,

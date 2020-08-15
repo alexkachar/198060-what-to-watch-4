@@ -26,6 +26,7 @@ const store = createStore(
 
 export const initApp = () => {
   store.dispatch(DataOperation.loadMovies());
+  store.dispatch(DataOperation.loadPromoMovie());
   store.dispatch(UserOperation.checkAuthStatus());
 };
 
