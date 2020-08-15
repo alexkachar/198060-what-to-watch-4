@@ -10,10 +10,11 @@ import {getMovies} from '../../store/reducers/data/selectors';
 import {getMovieById} from '../../store/reducers/ui/selectors';
 import UiActionCreator from '../../store/actions/ui/ui';
 
-import {reduceMovies, filterMoviesByGenre, excludeMovieById, formatRating} from '../../utils';
+import {reduceMovies, filterMoviesByGenre, excludeMovieById} from '../../utils';
 import {RECOMENDED_MOVIES_LIMIT} from '../../constants';
 
 import Movie from '../../interfaces/movie';
+import MovieInfo from '../movie-info/movie-info';
 interface Props {
   movieId: string;
   movie: Movie;
@@ -22,9 +23,6 @@ interface Props {
 }
 
 class MoviePage extends React.PureComponent<Props> {
-  constructor(props) {
-    super(props);
-  }
 
   componentDidMount() {
     const {onSetMovieId, movieId} = this.props;
@@ -52,24 +50,14 @@ class MoviePage extends React.PureComponent<Props> {
       return <div>Loading...</div>;
     }
 
-    const {movie, movies, movieId} = this.props;
+    const {movie, movies} = this.props;
     const {
       title,
       genre,
       posterImage,
-      previewImage,
       backgroundImage,
       backgroundColor,
-      videoLink,
-      previewVideoLink,
-      description,
-      rating,
-      scoresCount,
-      director,
-      starring,
-      runTime,
       released,
-      isFavorite,
     } = movie;
 
     const recomendedMovies = this._getRecomendedMovies(movies, genre);
@@ -109,40 +97,18 @@ class MoviePage extends React.PureComponent<Props> {
             </div>
           </div>
           <div className="movie-card__wrap movie-card__translate-top">
+
             <div className="movie-card__info">
               <div className="movie-card__poster movie-card__poster--big">
                 <img src={posterImage} alt={`${title} poster`} width={218} height={327} />
               </div>
-              <div className="movie-card__desc">
-                <nav className="movie-nav movie-card__nav">
-                  <ul className="movie-nav__list">
-                    <li className="movie-nav__item movie-nav__item--active">
-                      <a href="#" className="movie-nav__link">Overview</a>
-                    </li>
-                    <li className="movie-nav__item">
-                      <a href="#" className="movie-nav__link">Details</a>
-                    </li>
-                    <li className="movie-nav__item">
-                      <a href="#" className="movie-nav__link">Reviews</a>
-                    </li>
-                  </ul>
-                </nav>
-                <div className="movie-rating">
-                  <div className="movie-rating__score">{rating}</div>
-                  <p className="movie-rating__meta">
-                    <span className="movie-rating__level">{formatRating(rating)}</span>
-                    <span className="movie-rating__count">{`${scoresCount} ratings`}</span>
-                  </p>
-                </div>
-                <div className="movie-card__text">
-                  <p>{description}</p>
-                  <p className="movie-card__director"><strong>{`Director: ${director}`}</strong></p>
-                  <p className="movie-card__starring"><strong>{`Starring: ${starring.map((actor) => actor).join(`, `)}`}</strong></p>
-                </div>
-              </div>
+
+              <MovieInfo movie={movie} />
+
             </div>
           </div>
         </section>
+
         <div className="page-content">
           <section className="catalog catalog--like-this">
             <h2 className="catalog__title">More like this</h2>

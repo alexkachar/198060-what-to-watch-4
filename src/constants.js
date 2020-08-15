@@ -16,3 +16,15 @@ export const ResponseCodes = {
 };
 
 export const RECOMENDED_MOVIES_LIMIT = 4;
+
+export const MovieTabs = {
+  OVERVIEW: `Overview`,
+  DETAILS: `Details`,
+  REVIEWS: `Reviews`
+};
+
+export const tabs = [
+  `Overview`,
+  `Details`,
+  `Reviews`
+];
