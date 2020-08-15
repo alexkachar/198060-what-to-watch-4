@@ -39,3 +39,20 @@ export const excludeMovieById = (movies, movieId) => movies.filter((movie) => mo
 export const reduceMovies = (movies, limit) => movies.length <= 4 ? movies : reduceMovies.slice(0, limit);
 
 export const getSimilarMovies = (movies, genre) => reduceMovies(filterMoviesByGenre(movies, genre), 4);
+
+export const formatRating = (rating) => {
+  switch (true) {
+    case rating <= 3:
+      return `bad`;
+    case rating > 3 && rating <= 5:
+      return `normal`;
+    case rating > 5 && rating <= 8:
+      return `good`;
+    case rating > 8 && rating < 10:
+      return `very good`;
+    case (rating === 10):
+      return `awesome`;
+    default:
+      return `unknown`;
+  }
+};

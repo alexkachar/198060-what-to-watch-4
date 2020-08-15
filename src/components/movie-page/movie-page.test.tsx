@@ -2,15 +2,14 @@ import * as React from 'react';
 import * as renderer from 'react-test-renderer';
 import {Provider} from 'react-redux';
 import MoviePage from './movie-page';
-import MOCK_MOVIES from '../../test-data/mock-movies';
 import MOCK_STORE from '../../test-data/mock-store';
 
 it(`MoviePage renders correctly`, () => {
   const tree = renderer
     .create(
-      <Provider store={MOCK_STORE}>
-        <MoviePage />
-      </Provider>, {
+        <Provider store={MOCK_STORE}>
+          <MoviePage />
+        </Provider>, {
           createNodeMock: () => document.createElement(`div`)
         })
     .toJSON();

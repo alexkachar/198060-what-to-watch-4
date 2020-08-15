@@ -10,7 +10,7 @@ import {getMovies} from '../../store/reducers/data/selectors';
 import {getMovieById} from '../../store/reducers/ui/selectors';
 import UiActionCreator from '../../store/actions/ui/ui';
 
-import {reduceMovies, filterMoviesByGenre, excludeMovieById} from '../../utils';
+import {reduceMovies, filterMoviesByGenre, excludeMovieById, formatRating} from '../../utils';
 import {RECOMENDED_MOVIES_LIMIT} from '../../constants';
 
 import Movie from '../../interfaces/movie';
@@ -130,7 +130,7 @@ class MoviePage extends React.PureComponent<Props> {
                 <div className="movie-rating">
                   <div className="movie-rating__score">{rating}</div>
                   <p className="movie-rating__meta">
-                    <span className="movie-rating__level">Very good</span>
+                    <span className="movie-rating__level">{formatRating(rating)}</span>
                     <span className="movie-rating__count">{`${scoresCount} ratings`}</span>
                   </p>
                 </div>
