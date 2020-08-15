@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import MovieCardBig from '../movie-card-big/movie-card-big';
+import PromoMovieCard from '../promo-movie-card/promo-movie-card';
 import Catalog from '../catalog/catalog';
 import Footer from '../footer/footer';
 import Movie from '../../interfaces/movie';
@@ -16,7 +16,7 @@ const Main = (props: Props) => {
   const {movies, genres, onGenreSelect, selectedGenre} = props;
   return (
     <div>
-      <MovieCardBig />
+      <PromoMovieCard />
       <div className="page-content">
         <Catalog
           movies={movies}

@@ -1,11 +1,11 @@
 import * as React from 'react';
 import * as renderer from 'react-test-renderer';
-import MovieCardBig from './movie-card-big';
+import PromoMovieCard from './promo-movie-card';
 
-it(`MovieCardBig renders correctly`, () => {
+it(`PromoMovieCard renders correctly`, () => {
   const tree = renderer
     .create(
-        <MovieCardBig />, {
+        <PromoMovieCard />, {
           createNodeMock: () => document.createElement(`div`)
         })
     .toJSON();

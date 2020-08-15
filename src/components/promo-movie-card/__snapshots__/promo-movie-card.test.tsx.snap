@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`MovieCardBig renders correctly 1`] = `
+exports[`PromoMovieCard renders correctly 1`] = `
 Array [
   <div
     className="visually-hidden"

@@ -3,7 +3,7 @@ import * as React from 'react';
 import SvgInjection from '../partials/svg-injection/svg-injection';
 import Header from '../header/header';
 
-const MovieCardBig = () => (
+const PromoMovieCard = () => (
   <>
     <SvgInjection />
     <section className="movie-card">
@@ -43,4 +43,4 @@ const MovieCardBig = () => (
   </>
 );
 
-export default MovieCardBig;
+export default PromoMovieCard;
