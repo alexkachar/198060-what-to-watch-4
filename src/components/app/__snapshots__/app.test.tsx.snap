@@ -118,7 +118,7 @@ exports[`App renders correctly 1`] = `
     >
       <img
         alt="The Grand Budapest Hotel"
-        src="img/bg-the-grand-budapest-hotel.jpg"
+        src="img/the-grand-budapest-hotel-bg.jpg"
       />
     </div>
     <h1
@@ -197,7 +197,7 @@ exports[`App renders correctly 1`] = `
             <span
               className="movie-card__genre"
             >
-              Drama
+              Comedy
             </span>
             <span
               className="movie-card__year"

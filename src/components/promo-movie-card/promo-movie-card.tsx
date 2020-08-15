@@ -11,8 +11,8 @@ interface Props {
 const PromoMovieCard = (props: Props) => {
   const {promoMovie} = props;
 
-  if(!promoMovie) {
-    return <div>Loading ...</div>
+  if (!promoMovie) {
+    return <div>Loading ...</div>;
   }
 
   const {
@@ -61,7 +61,7 @@ const PromoMovieCard = (props: Props) => {
       </div>
     </section>
   </>
-);
+  );
 };
 
 export default PromoMovieCard;

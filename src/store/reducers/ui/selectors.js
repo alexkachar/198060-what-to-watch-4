@@ -1,6 +1,7 @@
 import {createSelector} from 'reselect';
 import NameSpace from '../../name-space';
 import {getMovies} from '../data/selectors';
+import {filterMoviesByGenre} from '../../../utils';
 
 const NAME_SPACE = NameSpace.UI;
 
@@ -15,6 +16,6 @@ export const filterMovies = createSelector(
         return movies;
       }
 
-      return movies.filter((movie) => movie.genre === selectedGenre);
+      return filterMoviesByGenre(movies, selectedGenre);
     }
 );

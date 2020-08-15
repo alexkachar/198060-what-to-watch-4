@@ -2,7 +2,7 @@ export const API_BASE = `https://4.react.pages.academy/wtw`;
 
 export const AppRoutes = {
   MAIN: `/`,
-  MOVIE: `/movie`
+  MOVIE: `/film/:id`
 };
 
 export const AuthStatus = {
@@ -14,3 +14,5 @@ export const ResponseCodes = {
   UNAUTHORIZED: 401,
   SUCCESS: 200
 };
+
+export const RECOMENDED_MOVIES_LIMIT = 4;

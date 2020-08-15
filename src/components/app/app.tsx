@@ -37,10 +37,11 @@ const App = (props: Props) => {
           }}
         />
         <Route exact path={AppRoutes.MOVIE}
-          render={() => {
+          render={({match}) => {
+            const {id} = match.params;
             return (
               <MoviePage
-                movies={movies}
+                movieId={id}
               />
             );
           }}

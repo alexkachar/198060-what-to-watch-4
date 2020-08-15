@@ -16,6 +16,14 @@ describe(`Data action creator work correctly`, () => {
     });
   });
 
+
+  it(`Action creator for setMovieId returns correct action`, () => {
+    expect(ActionCreator.setMovieId(1)).toEqual({
+      type: ActionTypes.SET_MOVIE_ID,
+      payload: 1
+    });
+  });
+
   it(`Action creator for setLoadingFlag returns correct action`, () => {
     expect(ActionCreator.setLoadingFlag(false)).toEqual({
       type: ActionTypes.SET_LOADING_FLAG,

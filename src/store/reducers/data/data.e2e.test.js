@@ -30,15 +30,28 @@ describe(`Data reducer work correctly`, () => {
     });
   });
 
-  it(`Should change loading with given flag `, () => {
+  it(`Should change movieId with given value`, () => {
     const state3 = {
+      movieId: null
+    };
+    const action = {
+      type: ActionTypes.SET_MOVIE_ID,
+      payload: 1
+    };
+    expect(reducer(state3, action)).toMatchObject({
+      movieId: 1
+    });
+  });
+
+  it(`Should change loading with given flag `, () => {
+    const state4 = {
       loading: true
     };
     const action = {
       type: ActionTypes.SET_LOADING_FLAG,
       payload: false
     };
-    expect(reducer(state3, action)).toMatchObject({
+    expect(reducer(state4, action)).toMatchObject({
       loading: false
     });
   });
