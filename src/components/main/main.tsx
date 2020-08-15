@@ -7,16 +7,17 @@ import Movie from '../../interfaces/movie';
 
 interface Props {
   movies: Movie[];
+  promoMovie: Movie;
   genres: string[];
   selectedGenre: string;
   onGenreSelect: (genre: string) => void;
 }
 
 const Main = (props: Props) => {
-  const {movies, genres, onGenreSelect, selectedGenre} = props;
+  const {movies, promoMovie, genres, onGenreSelect, selectedGenre} = props;
   return (
     <div>
-      <PromoMovieCard />
+      <PromoMovieCard promoMovie={promoMovie} />
       <div className="page-content">
         <Catalog
           movies={movies}

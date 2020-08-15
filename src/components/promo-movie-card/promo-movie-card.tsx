@@ -2,25 +2,45 @@ import * as React from 'react';
 
 import SvgInjection from '../partials/svg-injection/svg-injection';
 import Header from '../header/header';
+import Movie from '../../interfaces/movie';
 
-const PromoMovieCard = () => (
+interface Props {
+  promoMovie: Movie;
+}
+
+const PromoMovieCard = (props: Props) => {
+  const {promoMovie} = props;
+
+  if(!promoMovie) {
+    return <div>Loading ...</div>
+  }
+
+  const {
+    title,
+    genre,
+    released,
+    backgroundImage,
+    posterImage,
+  } = promoMovie;
+
+  return (
   <>
     <SvgInjection />
     <section className="movie-card">
       <div className="movie-card__bg">
-        <img src="img/bg-the-grand-budapest-hotel.jpg" alt="The Grand Budapest Hotel" />
+        <img src={backgroundImage} alt={title} />
       </div>
       <Header />
       <div className="movie-card__wrap">
         <div className="movie-card__info">
           <div className="movie-card__poster">
-            <img src="img/the-grand-budapest-hotel-poster.jpg" alt="The Grand Budapest Hotel poster" width={218} height={327} />
+            <img src={posterImage} alt={`${title} poster`} width={218} height={327} />
           </div>
           <div className="movie-card__desc">
-            <h2 className="movie-card__title">The Grand Budapest Hotel</h2>
+            <h2 className="movie-card__title">{title}</h2>
             <p className="movie-card__meta">
-              <span className="movie-card__genre">Drama</span>
-              <span className="movie-card__year">2014</span>
+              <span className="movie-card__genre">{genre}</span>
+              <span className="movie-card__year">{released}</span>
             </p>
             <div className="movie-card__buttons">
               <button className="btn btn--play movie-card__button" type="button">
@@ -42,5 +62,6 @@ const PromoMovieCard = () => (
     </section>
   </>
 );
+};
 
 export default PromoMovieCard;

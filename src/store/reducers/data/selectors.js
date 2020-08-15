@@ -7,6 +7,10 @@ export const getMovies = (state) => {
   return state[NAME_SPACE].movies;
 };
 
+export const getPromoMovie = (state) => {
+  return state[NAME_SPACE].promoMovie;
+};
+
 export const getGenres = (state) => {
   return getGenresList(state[NAME_SPACE].movies);
 };

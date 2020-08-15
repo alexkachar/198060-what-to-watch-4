@@ -12,6 +12,7 @@ it(`App renders correctly`, () => {
     .create(
         <App
           movies={MOCK_MOVIES}
+          promoMovie={MOCK_MOVIES[0]}
           selectedGenre={SELECTED_GENRE}
           genres={MOCK_GENRES}
           onGenreSelect={jest.fn()}
