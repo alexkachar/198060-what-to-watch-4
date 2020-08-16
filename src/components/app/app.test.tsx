@@ -5,6 +5,7 @@ import {BrowserRouter} from 'react-router-dom';
 import {App} from './app';
 import MOCK_MOVIES from '../../test-data/mock-movies';
 import MOCK_GENRES from '../../test-data/mock-genres';
+import {INITIAL_MOVIES_LIMIT} from '../../constants';
 
 const SELECTED_GENRE = `Action`;
 
@@ -17,7 +18,9 @@ it(`App renders correctly`, () => {
             promoMovie={MOCK_MOVIES[0]}
             selectedGenre={SELECTED_GENRE}
             genres={MOCK_GENRES}
+            moviesLimit={INITIAL_MOVIES_LIMIT}
             onGenreSelect={jest.fn()}
+            onShowMoreClick={jest.fn()}
           />
         </BrowserRouter>, {
           createNodeMock: () => document.createElement(`div`)

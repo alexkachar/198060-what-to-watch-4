@@ -8,11 +8,13 @@ interface Props {
   movies: Movie[];
   genres: string[];
   selectedGenre: string;
+  showMoreAccess: boolean;
   onGenreSelect: (genre: string) => void;
+  onShowMoreClick: () => void;
 }
 
 const Catalog = (props: Props) => {
-  const {movies, genres, onGenreSelect, selectedGenre} = props;
+  const {movies, genres, selectedGenre, showMoreAccess, onGenreSelect, onShowMoreClick} = props;
   return (
     <section className="catalog">
       <h2 className="catalog__title visually-hidden">Catalog</h2>
@@ -22,7 +24,7 @@ const Catalog = (props: Props) => {
         onGenreSelect={onGenreSelect}
       />
       <MoviesList movies={movies}/>
-      <ShowMore />
+      {showMoreAccess && <ShowMore onShowMoreClick={onShowMoreClick} />}
     </section>
   );
 };

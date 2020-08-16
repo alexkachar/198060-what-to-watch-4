@@ -13,6 +13,10 @@ export const getMovieId = (state) => {
   return state[NAME_SPACE].movieId;
 };
 
+export const getMoviesLimit = (state) => {
+  return state[NAME_SPACE].moviesLimit;
+};
+
 export const filterMovies = createSelector(
     [getSelectedGenre, getMovies],
     (selectedGenre, movies) => {

@@ -36,7 +36,7 @@ export const filterMoviesByGenre = (movies, genre) => movies.filter((movie) => m
 
 export const excludeMovieById = (movies, movieId) => movies.filter((movie) => movie.id !== movieId);
 
-export const reduceMovies = (movies, limit) => movies.length <= 4 ? movies : reduceMovies.slice(0, limit);
+export const reduceMovies = (movies, limit) => movies.length <= limit ? movies : movies.slice(0, limit);
 
 export const getSimilarMovies = (movies, genre) => reduceMovies(filterMoviesByGenre(movies, genre), 4);
 

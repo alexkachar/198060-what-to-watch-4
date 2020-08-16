@@ -16,7 +16,9 @@ it(`Catalog renders correctly`, () => {
             movies={MOCK_MOVIES}
             genres={MOCK_GENRES}
             selectedGenre={SELECTED_GENRE}
+            showMoreAccess={true}
             onGenreSelect={jest.fn()}
+            onShowMoreClick={jest.fn()}
           />
         </BrowserRouter>, {
           createNodeMock: () => document.createElement(`div`)

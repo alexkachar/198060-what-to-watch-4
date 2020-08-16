@@ -10,11 +10,13 @@ interface Props {
   promoMovie: Movie;
   genres: string[];
   selectedGenre: string;
+  showMoreAccess: boolean;
   onGenreSelect: (genre: string) => void;
+  onShowMoreClick: () => void;
 }
 
 const Main = (props: Props) => {
-  const {movies, promoMovie, genres, onGenreSelect, selectedGenre} = props;
+  const {movies, promoMovie, genres, selectedGenre, showMoreAccess, onGenreSelect, onShowMoreClick} = props;
   return (
     <div>
       <PromoMovieCard promoMovie={promoMovie} />
@@ -23,7 +25,9 @@ const Main = (props: Props) => {
           movies={movies}
           genres={genres}
           selectedGenre={selectedGenre}
+          showMoreAccess={showMoreAccess}
           onGenreSelect={onGenreSelect}
+          onShowMoreClick={onShowMoreClick}
         />
         <Footer />
       </div>

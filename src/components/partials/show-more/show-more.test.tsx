@@ -5,7 +5,9 @@ import ShowMore from './show-more';
 it(`ShowMore renders correctly`, () => {
   const tree = renderer
     .create(
-        <ShowMore />, {
+        <ShowMore
+          onShowMoreClick={jest.fn()}
+        />, {
           createNodeMock: () => document.createElement(`div`)
         })
     .toJSON();
