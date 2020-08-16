@@ -9,13 +9,13 @@ import MOCK_STORE from '../../test-data/mock-store';
 it(`MoviePage renders correctly`, () => {
   const tree = renderer
     .create(
-      <Provider store={MOCK_STORE}>
-        <BrowserRouter>
-          <MoviePage />
-        </BrowserRouter>
-      </Provider>, {
-      createNodeMock: () => document.createElement(`div`)
-    })
+        <Provider store={MOCK_STORE}>
+          <BrowserRouter>
+            <MoviePage />
+          </BrowserRouter>
+        </Provider>, {
+          createNodeMock: () => document.createElement(`div`)
+        })
     .toJSON();
   expect(tree).toMatchSnapshot();
 });

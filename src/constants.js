@@ -28,3 +28,7 @@ export const tabs = [
   `Details`,
   `Reviews`
 ];
+
+export const INITIAL_MOVIES_LIMIT = 8;
+
+export const MOVIES_LIMIT_ADD_STEP = 8;

@@ -11,16 +11,16 @@ const SELECTED_GENRE = `Action`;
 it(`Catalog renders correctly`, () => {
   const tree = renderer
     .create(
-      <BrowserRouter>
-        <Catalog
-          movies={MOCK_MOVIES}
-          genres={MOCK_GENRES}
-          selectedGenre={SELECTED_GENRE}
-          onGenreSelect={jest.fn()}
-        />
-      </BrowserRouter>, {
-      createNodeMock: () => document.createElement(`div`)
-    })
+        <BrowserRouter>
+          <Catalog
+            movies={MOCK_MOVIES}
+            genres={MOCK_GENRES}
+            selectedGenre={SELECTED_GENRE}
+            onGenreSelect={jest.fn()}
+          />
+        </BrowserRouter>, {
+          createNodeMock: () => document.createElement(`div`)
+        })
     .toJSON();
   expect(tree).toMatchSnapshot();
 });

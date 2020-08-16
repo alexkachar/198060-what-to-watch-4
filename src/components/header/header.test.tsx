@@ -7,9 +7,9 @@ import Header from './header';
 it(`Header renders correctly`, () => {
   const tree = renderer
     .create(
-      <BrowserRouter>
-        <Header />
-      </BrowserRouter>, {
+        <BrowserRouter>
+          <Header />
+        </BrowserRouter>, {
           createNodeMock: () => document.createElement(`div`)
         })
     .toJSON();

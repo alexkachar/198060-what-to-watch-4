@@ -11,17 +11,17 @@ const SELECTED_GENRE = `Action`;
 it(`Main renders correctly`, () => {
   const tree = renderer
     .create(
-      <BrowserRouter>
-        <Main
-          movies={MOCK_MOVIES}
-          promoMovie={MOCK_MOVIES[0]}
-          genres={MOCK_GENRES}
-          selectedGenre={SELECTED_GENRE}
-          onGenreSelect={jest.fn()}
-        />
-      </BrowserRouter>, {
-      createNodeMock: () => document.createElement(`div`)
-    })
+        <BrowserRouter>
+          <Main
+            movies={MOCK_MOVIES}
+            promoMovie={MOCK_MOVIES[0]}
+            genres={MOCK_GENRES}
+            selectedGenre={SELECTED_GENRE}
+            onGenreSelect={jest.fn()}
+          />
+        </BrowserRouter>, {
+          createNodeMock: () => document.createElement(`div`)
+        })
     .toJSON();
   expect(tree).toMatchSnapshot();
 });

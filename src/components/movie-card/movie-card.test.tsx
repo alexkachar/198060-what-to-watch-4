@@ -7,11 +7,11 @@ import MOCK_MOVIES from '../../test-data/mock-movies';
 it(`MovieCard renders correctly`, () => {
   const tree = renderer
     .create(
-      <BrowserRouter>
-        <MovieCard movie={MOCK_MOVIES[0]} />
-      </BrowserRouter>, {
-      createNodeMock: () => document.createElement(`div`)
-    })
+        <BrowserRouter>
+          <MovieCard movie={MOCK_MOVIES[0]} />
+        </BrowserRouter>, {
+          createNodeMock: () => document.createElement(`div`)
+        })
     .toJSON();
   expect(tree).toMatchSnapshot();
 });
