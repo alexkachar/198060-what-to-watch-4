@@ -32,3 +32,9 @@ export const tabs = [
 export const INITIAL_MOVIES_LIMIT = 8;
 
 export const MOVIES_LIMIT_ADD_STEP = 8;
+
+export const LoginErrorMesseges = {
+  EMAIL: `Please enter a valid email address`,
+  PASSWORD: `Sorry, the password is too short`,
+  LOGIN_FAILED: `We can’t recognize this email and password combination. Please try again.`
+};
