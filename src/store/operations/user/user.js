@@ -1,6 +1,7 @@
 import ActionCreator from '../../actions/user/user';
 import DataActionCreator from '../../actions/data/data';
 import {AuthStatus, ResponseCodes} from '../../../constants';
+import {formatUser} from '../../../utils';
 
 const Operation = {
   checkAuthStatus: () => (dispatch, getState, api) => {
@@ -10,7 +11,7 @@ const Operation = {
           dispatch(ActionCreator.setAuthStatus(AuthStatus.NO_AUTH));
         }
         if (response.status === ResponseCodes.SUCCESS) {
-          dispatch(ActionCreator.setUser(response.data));
+          dispatch(ActionCreator.setUser(formatUser(response.data)));
           dispatch(ActionCreator.setAuthStatus(AuthStatus.AUTH));
         }
       })
@@ -30,9 +31,14 @@ const Operation = {
       password: authData.password,
     })
       .then((response) => {
-        dispatch(ActionCreator.setUser(response.data));
+        dispatch(ActionCreator.setUser(formatUser(response.data)));
         dispatch(ActionCreator.setAuthStatus(AuthStatus.AUTH));
         dispatch(DataActionCreator.setLoadingFlag(false));
+      })
+      .catch(() => {
+        dispatch(ActionCreator.setAuthStatus(AuthStatus.NO_AUTH));
+        dispatch(DataActionCreator.setLoadingFlag(false));
+        dispatch(ActionCreator.setLoginError(true));
       });
   }
 };

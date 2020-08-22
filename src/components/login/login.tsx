@@ -1,15 +1,17 @@
 import * as React from 'react';
 
-import Header from '../header/header';
-import Footer from '../footer/footer';
+import {Link, Redirect} from 'react-router-dom';
+
+import {AppRoutes, LoginErrorMesseges} from '../../constants';
 import withLogin from '../../hocs/with-login/with-login';
-import {LoginErrorMesseges} from '../../constants';
+import Footer from '../footer/footer';
 
 interface Props {
+  isAuth: boolean;
   isValid: boolean;
   loading: boolean;
-  emailError: string;
-  passwordError: string;
+  emailError: boolean;
+  passwordError: boolean;
   loginError: boolean;
   onEmailChange: () => void;
   onPasswordChange: () => void;
@@ -17,18 +19,33 @@ interface Props {
 }
 
 const Login = (props: Props) => {
+  const {isAuth} = props;
+
+  if (isAuth) {
+    return <Redirect to={AppRoutes.MAIN} />;
+  }
+
   const {isValid, emailError, passwordError, loginError, onEmailChange, onPasswordChange, onSubmit, loading} = props;
 
   return loading ? <div>Loading ...</div> : (
     <div className="user-page">
-      <Header />
+      <header className="page-header user-page__head">
+        <div className="logo">
+          <Link to={AppRoutes.MAIN} className="logo__link">
+            <span className="logo__letter logo__letter--1">W</span>
+            <span className="logo__letter logo__letter--2">T</span>
+            <span className="logo__letter logo__letter--3">W</span>
+          </Link>
+        </div>
+        <h1 className="page-title user-page__title">Sign in</h1>
+      </header>
       <div className="sign-in user-page__content">
         <form action="#" className="sign-in__form" onSubmit={onSubmit}>
-
-          {emailError && <div className="sign-in__message"><p>{LoginErrorMesseges.EMAIL}</p></div>}
-          {passwordError && <div className="sign-in__message"><p>{LoginErrorMesseges.PASSWORD}</p></div>}
-          {loginError && <div className="sign-in__message"><p>{LoginErrorMesseges.LOGIN_FAILED}</p></div>}
-
+          <div className="sign-in__message">
+            {emailError && <p>{LoginErrorMesseges.EMAIL}</p>}
+            {passwordError && <p>{LoginErrorMesseges.PASSWORD}</p>}
+            {loginError && <p>{LoginErrorMesseges.LOGIN_FAILED}</p>}
+          </div>
           <div className="sign-in__fields">
             <div className="sign-in__field">
               <input

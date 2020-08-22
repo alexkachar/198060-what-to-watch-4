@@ -4,13 +4,16 @@ import {connect} from 'react-redux';
 
 import {AppRoutes} from '../../constants';
 import {filterMovies, getMoviesLimit} from '../../store/reducers/ui/selectors';
-import {getPromoMovie, getGenres} from '../../store/reducers/data/selectors';
+import {getPromoMovie, getGenres, getLoadingFlag} from '../../store/reducers/data/selectors';
 import {getSelectedGenre} from '../../store/reducers/ui/selectors';
+import {getAuthFlag} from '../../store/reducers/user/selectors';
+import {MOVIES_LIMIT_ADD_STEP} from '../../constants';
+import UiActionCreator from '../../store/actions/ui/ui';
+import UserOperation from '../../store/operations/user/user';
 import Movie from '../../interfaces/movie';
 import Main from '../main/main';
 import MoviePage from '../movie-page/movie-page';
-import UiActionCreator from '../../store/actions/ui/ui';
-import {MOVIES_LIMIT_ADD_STEP} from '../../constants';
+import Login from '../login/login';
 
 interface Props {
   movies: Movie[];
@@ -18,12 +21,26 @@ interface Props {
   genres: string[];
   selectedGenre: string;
   moviesLimit: number;
+  loading: boolean;
+  isAuth: boolean;
   onGenreSelect: (genre: string) => void;
   onShowMoreClick: () => void;
+  onLogin: (authData: {}) => void;
 }
 
 const App = (props: Props) => {
-  const {movies, promoMovie, genres, selectedGenre, moviesLimit, onGenreSelect, onShowMoreClick} = props;
+  const {
+    isAuth,
+    movies,
+    promoMovie,
+    genres,
+    selectedGenre,
+    moviesLimit,
+    loading,
+    onGenreSelect,
+    onShowMoreClick,
+    onLogin
+  } = props;
   const showMoreAccess = movies.length > moviesLimit;
   const moviesToList = movies.slice(0, moviesLimit);
   return (
@@ -54,6 +71,17 @@ const App = (props: Props) => {
             );
           }}
         />
+        <Route exact path={AppRoutes.LOGIN}
+          render={() => {
+            return (
+              <Login
+                onLogin={onLogin}
+                loading={loading}
+                isAuth={isAuth}
+              />
+            );
+          }}
+        />
       </Switch>
     </BrowserRouter>
   );
@@ -64,7 +92,9 @@ const mapStateToProps = (state) => ({
   promoMovie: getPromoMovie(state),
   genres: getGenres(state),
   selectedGenre: getSelectedGenre(state),
-  moviesLimit: getMoviesLimit(state)
+  moviesLimit: getMoviesLimit(state),
+  loading: getLoadingFlag(state),
+  isAuth: getAuthFlag(state)
 });
 
 const mapDispatchToProps = (dispatch) => ({
@@ -76,7 +106,11 @@ const mapDispatchToProps = (dispatch) => ({
 
   onShowMoreClick: () => {
     dispatch(UiActionCreator.setMoviesLimit(MOVIES_LIMIT_ADD_STEP));
-  }
+  },
+
+  onLogin(authData: {}) {
+    dispatch(UserOperation.login(authData));
+  },
 
 });
 

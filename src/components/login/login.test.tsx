@@ -13,6 +13,7 @@ it(`Header renders correctly`, () => {
             <Login
               onLogin={jest.fn()}
               loading={false}
+              isAuth={false}
             />
           </BrowserRouter>
         </Provider>, {

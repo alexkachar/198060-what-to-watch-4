@@ -66,12 +66,17 @@ const withLogin = (Component) => {
     }
 
     render() {
-      const {isValidEmail, isValidPassword} = this.state;
+      const {email, password, isValidEmail, isValidPassword} = this.state;
       const isValid = isValidEmail && isValidPassword;
+      const emailError = !isValidEmail && email.length > 0;
+      const passwordError = !isValidPassword && password.length > 0;
+
 
       return (
         <Component
           {...this.props}
+          emailError={emailError}
+          passwordError={passwordError}
           isValid={isValid}
           onEmailChange={this._handleEmailChange}
           onPasswordChange={this._handlePasswordChange}

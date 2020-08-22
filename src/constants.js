@@ -1,8 +1,12 @@
 export const API_BASE = `https://4.react.pages.academy/wtw`;
 
+export const AVATAR_BASE = `https://htmlacademy-react-3.appspot.com`;
+
 export const AppRoutes = {
   MAIN: `/`,
-  MOVIE: `/film/:id`
+  MOVIE: `/film/:id`,
+  LOGIN: `/signin`,
+  FAVORITES: `/favorites`
 };
 
 export const AuthStatus = {

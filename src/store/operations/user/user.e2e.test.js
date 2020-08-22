@@ -5,7 +5,7 @@ import Operation from './user';
 import {ActionTypes} from '../../actions/user/user';
 import {ActionTypes as DataActionTypes} from '../../actions/data/data';
 import {AuthStatus} from '../../../constants';
-import rawUser from '../../../test-data/user';
+import rawUser from '../../../test-data/raw-user';
 import mockUser from '../../../test-data/user';
 
 const api = createAPI(jest.fn());

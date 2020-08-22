@@ -2,8 +2,11 @@ import {createStore} from 'redux';
 
 import MOCK_MOVIES from './mock-movies';
 import Movie from '../interfaces/movie';
+import MOCK_USER from './user';
+import User from '../interfaces/user';
 
 const movies: Movie[] = MOCK_MOVIES;
+const user: User = MOCK_USER;
 
 const store = createStore(() => ({
   DATA: {
@@ -17,7 +20,7 @@ const store = createStore(() => ({
   },
   USER: {
     authStatus: `AUTH`,
-    user: null
+    user: user
   }
 }));
 

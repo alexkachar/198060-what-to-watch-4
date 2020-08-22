@@ -157,16 +157,27 @@ exports[`App renders correctly 1`] = `
       <div
         className="user-block"
       >
-        <div
+        <a
           className="user-block__avatar"
+          href="/favorites"
+          onClick={[Function]}
+          style={
+            Object {
+              "textDecoration": "none",
+            }
+          }
         >
           <img
-            alt="User avatar"
-            height={63}
-            src="img/avatar.jpg"
-            width={63}
+            src="https://htmlacademy-react-3.appspot.com/img/john_doe.jpg"
+            style={
+              Object {
+                "borderRadius": "50%",
+                "height": "63px",
+                "width": "63px",
+              }
+            }
           />
-        </div>
+        </a>
       </div>
     </header>
     <div
@@ -264,23 +275,13 @@ exports[`App renders correctly 1`] = `
         className="catalog__genres-list"
       >
         <li
-          className="catalog__genres-item null"
-        >
-          <a
-            className="catalog__genres-link"
-            onClick={[Function]}
-          >
-            All genres
-          </a>
-        </li>
-        <li
           className="catalog__genres-item catalog__genres-item--active"
         >
           <a
             className="catalog__genres-link"
             onClick={[Function]}
           >
-            Action
+            All genres
           </a>
         </li>
         <li
@@ -310,37 +311,7 @@ exports[`App renders correctly 1`] = `
             className="catalog__genres-link"
             onClick={[Function]}
           >
-            Crime
-          </a>
-        </li>
-        <li
-          className="catalog__genres-item null"
-        >
-          <a
-            className="catalog__genres-link"
-            onClick={[Function]}
-          >
-            Drama
-          </a>
-        </li>
-        <li
-          className="catalog__genres-item null"
-        >
-          <a
-            className="catalog__genres-link"
-            onClick={[Function]}
-          >
             Fantasy
-          </a>
-        </li>
-        <li
-          className="catalog__genres-item null"
-        >
-          <a
-            className="catalog__genres-link"
-            onClick={[Function]}
-          >
-            Thriller
           </a>
         </li>
       </ul>
