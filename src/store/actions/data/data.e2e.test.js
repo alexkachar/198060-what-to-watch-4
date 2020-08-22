@@ -16,6 +16,13 @@ describe(`Data action creator work correctly`, () => {
     });
   });
 
+  it(`Action creator for getFavorites returns correct action`, () => {
+    expect(ActionCreator.getFavorites(MOCK_MOVIES)).toEqual({
+      type: ActionTypes.GET_FAVORITES,
+      payload: MOCK_MOVIES
+    });
+  });
+
   it(`Action creator for setLoadingFlag returns correct action`, () => {
     expect(ActionCreator.setLoadingFlag(false)).toEqual({
       type: ActionTypes.SET_LOADING_FLAG,

@@ -11,7 +11,7 @@ it(`Header renders correctly`, () => {
     .create(
         <Provider store={store}>
           <BrowserRouter>
-            <Header />
+            <Header isFavoritesHeader={false} />
           </BrowserRouter>
         </Provider>, {
           createNodeMock: () => document.createElement(`div`)

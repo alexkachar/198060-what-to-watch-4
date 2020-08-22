@@ -21,7 +21,15 @@ const Operation = {
             dispatch(DataActionCreator.getPromoMovie(formatMovie(response.data)));
             dispatch(DataActionCreator.setLoadingFlag(false));
           });
-  }
+  },
+
+  loadFavorites: () => (dispatch, getState, api) => {
+    return api.get(`/favorite`)
+      .then(
+          (response) => {
+            dispatch(DataActionCreator.getFavorites(formatMovies(response.data)));
+          });
+  },
 
 };
 

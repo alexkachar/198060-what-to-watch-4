@@ -30,6 +30,19 @@ describe(`Data reducer work correctly`, () => {
     });
   });
 
+  it(`Should change favorites with given value `, () => {
+    const state3 = {
+      favorites: []
+    };
+    const action = {
+      type: ActionTypes.GET_FAVORITES,
+      payload: MOCK_MOVIES
+    };
+    expect(reducer(state3, action)).toMatchObject({
+      favorites: MOCK_MOVIES
+    });
+  });
+
   it(`Should change loading with given flag `, () => {
     const state3 = {
       loading: true

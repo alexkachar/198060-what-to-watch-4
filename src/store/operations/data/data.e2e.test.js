@@ -62,4 +62,23 @@ describe(`Load operation works correctly`, () => {
       });
   });
 
+  it(`Should make a correct API call to /favorite and get favorites`, () => {
+    const apiMock = new MockAdapter(api);
+    const dispatch = jest.fn();
+    const dataLoader = Operation.loadFavorites();
+
+    apiMock
+      .onGet(`/favorite`)
+      .reply(200, RAW_MOVIES);
+
+    return dataLoader(dispatch, jest.fn(), api)
+      .then(() => {
+        expect(dispatch).toHaveBeenCalledTimes(1);
+        expect(dispatch).toHaveBeenNthCalledWith(1, {
+          type: ActionTypes.GET_FAVORITES,
+          payload: formatMovies(RAW_MOVIES)
+        });
+      });
+  });
+
 });

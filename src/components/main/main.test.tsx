@@ -13,19 +13,19 @@ const SELECTED_GENRE = `Action`;
 it(`Main renders correctly`, () => {
   const tree = renderer
     .create(
-      <Provider store={store}>
-        <BrowserRouter>
-          <Main
-            movies={MOCK_MOVIES}
-            promoMovie={MOCK_MOVIES[0]}
-            genres={MOCK_GENRES}
-            selectedGenre={SELECTED_GENRE}
-            showMoreAccess={true}
-            onGenreSelect={jest.fn()}
-            onShowMoreClick={jest.fn()}
-          />
-        </BrowserRouter>
-      </Provider>, {
+        <Provider store={store}>
+          <BrowserRouter>
+            <Main
+              movies={MOCK_MOVIES}
+              promoMovie={MOCK_MOVIES[0]}
+              genres={MOCK_GENRES}
+              selectedGenre={SELECTED_GENRE}
+              showMoreAccess={true}
+              onGenreSelect={jest.fn()}
+              onShowMoreClick={jest.fn()}
+            />
+          </BrowserRouter>
+        </Provider>, {
           createNodeMock: () => document.createElement(`div`)
         })
     .toJSON();

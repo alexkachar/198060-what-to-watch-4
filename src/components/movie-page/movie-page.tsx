@@ -70,7 +70,7 @@ class MoviePage extends React.PureComponent<Props> {
             <div className="movie-card__bg">
               <img src={backgroundImage} alt={title} />
             </div>
-            <Header />
+            <Header isFavoritesHeader={false} />
             <div className="movie-card__wrap">
               <div className="movie-card__desc">
                 <h2 className="movie-card__title">{title}</h2>

@@ -8,10 +8,11 @@ import User from '../../interfaces/user';
 interface Props {
   user: User;
   isAuth: boolean;
+  isFavoritesHeader: boolean;
 }
 
 const Header = (props: Props) => {
-  const {isAuth, user} = props;
+  const {isAuth, user, isFavoritesHeader} = props;
 
   return (
     <>
@@ -24,6 +25,9 @@ const Header = (props: Props) => {
             <span className="logo__letter logo__letter--3">W</span>
           </Link>
         </div>
+
+        {isFavoritesHeader && <h1 className="page-title user-page__title">My list</h1>}
+
         <div className="user-block">
           <Link to={AppRoutes.FAVORITES} className="user-block__avatar" style={{textDecoration: `none`}}>
             {isAuth

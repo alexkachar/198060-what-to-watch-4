@@ -12,6 +12,7 @@ const store = createStore(() => ({
   DATA: {
     movies: movies,
     promoMovie: movies[0],
+    favorites: movies,
     loading: false
   },
   UI: {

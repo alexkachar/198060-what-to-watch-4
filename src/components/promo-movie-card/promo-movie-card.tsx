@@ -30,7 +30,7 @@ const PromoMovieCard = (props: Props) => {
       <div className="movie-card__bg">
         <img src={backgroundImage} alt={title} />
       </div>
-      <Header />
+      <Header isFavoritesHeader={false} />
       <div className="movie-card__wrap">
         <div className="movie-card__info">
           <div className="movie-card__poster">
