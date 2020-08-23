@@ -1,6 +1,7 @@
 import * as React from 'react';
 
 import Header from '../header/header';
+import Loader from '../loader/loader';
 import Movie from '../../interfaces/movie';
 
 interface Props {
@@ -12,7 +13,7 @@ const PromoMovieCard = (props: Props) => {
   const {promoMovie, isAuth} = props;
 
   if (!promoMovie) {
-    return <div>Loading ...</div>;
+    return <Loader />;
   }
 
   const {

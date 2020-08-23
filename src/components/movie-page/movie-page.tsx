@@ -2,6 +2,7 @@ import * as React from 'react';
 import {connect} from 'react-redux';
 
 import Footer from '../footer/footer';
+import Loader from '../loader/loader';
 import MoviesList from '../movies-list/movies-list';
 import Header from '../header/header';
 
@@ -48,7 +49,7 @@ class MoviePage extends React.PureComponent<Props> {
 
   render() {
     if (!this.props.movie) {
-      return <div>Loading...</div>;
+      return <Loader />;
     }
 
     const {movie, movies, isAuth} = this.props;

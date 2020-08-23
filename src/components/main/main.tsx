@@ -4,6 +4,7 @@ import PromoMovieCard from '../promo-movie-card/promo-movie-card';
 import Catalog from '../catalog/catalog';
 import Footer from '../footer/footer';
 import Movie from '../../interfaces/movie';
+import Loader from '../loader/loader';
 
 interface Props {
   movies: Movie[];
@@ -12,13 +13,14 @@ interface Props {
   selectedGenre: string;
   showMoreAccess: boolean;
   isAuth: boolean;
+  loading: boolean;
   onGenreSelect: (genre: string) => void;
   onShowMoreClick: () => void;
 }
 
 const Main = (props: Props) => {
-  const {movies, promoMovie, genres, selectedGenre, showMoreAccess, isAuth, onGenreSelect, onShowMoreClick} = props;
-  return (
+  const {movies, promoMovie, genres, selectedGenre, showMoreAccess, loading, isAuth, onGenreSelect, onShowMoreClick} = props;
+  return loading ? <Loader /> : (
     <div>
       <PromoMovieCard
         promoMovie={promoMovie}

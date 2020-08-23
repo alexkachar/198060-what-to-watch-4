@@ -5,6 +5,7 @@ import {Link, Redirect} from 'react-router-dom';
 import {AppRoutes, LoginErrorMesseges} from '../../constants';
 import withLogin from '../../hocs/with-login/with-login';
 import Footer from '../footer/footer';
+import Loader from '../loader/loader';
 
 interface Props {
   isAuth: boolean;
@@ -27,7 +28,7 @@ const Login = (props: Props) => {
 
   const {isValid, emailError, passwordError, loginError, onEmailChange, onPasswordChange, onSubmit, loading} = props;
 
-  return loading ? <div>Loading ...</div> : (
+  return loading ? <Loader /> : (
     <div className="user-page">
       <header className="page-header user-page__head">
         <div className="logo">
