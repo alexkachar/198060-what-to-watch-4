@@ -21,6 +21,7 @@ it(`Main renders correctly`, () => {
               genres={MOCK_GENRES}
               selectedGenre={SELECTED_GENRE}
               showMoreAccess={true}
+              isAuth={false}
               onGenreSelect={jest.fn()}
               onShowMoreClick={jest.fn()}
             />

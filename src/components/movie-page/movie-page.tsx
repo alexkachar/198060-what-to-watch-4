@@ -7,6 +7,7 @@ import Header from '../header/header';
 
 import {getMovies} from '../../store/reducers/data/selectors';
 import {getMovieById} from '../../store/reducers/ui/selectors';
+import {getAuthFlag} from '../../store/reducers/user/selectors';
 import UiActionCreator from '../../store/actions/ui/ui';
 
 import {reduceMovies, filterMoviesByGenre, excludeMovieById} from '../../utils';
@@ -18,6 +19,7 @@ interface Props {
   movieId: string;
   movie: Movie;
   movies: Movie[];
+  isAuth: boolean;
   onSetMovieId: (movieId: number | string) => void;
 }
 
@@ -49,7 +51,7 @@ class MoviePage extends React.PureComponent<Props> {
       return <div>Loading...</div>;
     }
 
-    const {movie, movies} = this.props;
+    const {movie, movies, isAuth} = this.props;
     const {
       title,
       genre,
@@ -83,13 +85,13 @@ class MoviePage extends React.PureComponent<Props> {
                     </svg>
                     <span>Play</span>
                   </button>
-                  <button className="btn btn--list movie-card__button" type="button">
+                  {isAuth && <button className="btn btn--list movie-card__button" type="button">
                     <svg viewBox="0 0 19 20" width={19} height={20}>
                       <use xlinkHref="#add" />
                     </svg>
                     <span>My list</span>
-                  </button>
-                  <a href="add-review.html" className="btn movie-card__button">Add review</a>
+                  </button>}
+                  {isAuth && <a href="add-review.html" className="btn movie-card__button">Add review</a>}
                 </div>
               </div>
             </div>
@@ -123,6 +125,7 @@ class MoviePage extends React.PureComponent<Props> {
 const mapStateToProps = (state) => ({
   movie: getMovieById(state),
   movies: getMovies(state),
+  isAuth: getAuthFlag(state)
 });
 
 const mapDispatchToProps = (dispatch) => ({

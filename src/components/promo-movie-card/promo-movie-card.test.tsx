@@ -12,7 +12,10 @@ it(`PromoMovieCard renders correctly`, () => {
     .create(
         <Provider store={store}>
           <BrowserRouter>
-            <PromoMovieCard promoMovie={MOCK_MOVIES[0]} />
+            <PromoMovieCard
+              promoMovie={MOCK_MOVIES[0]}
+              isAuth={false}
+            />
           </BrowserRouter>
         </Provider>, {
           createNodeMock: () => document.createElement(`div`)

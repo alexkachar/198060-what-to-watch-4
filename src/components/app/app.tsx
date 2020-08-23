@@ -58,6 +58,7 @@ const App = (props: Props) => {
                 showMoreAccess={showMoreAccess}
                 onGenreSelect={onGenreSelect}
                 onShowMoreClick={onShowMoreClick}
+                isAuth={isAuth}
               />
             );
           }}
