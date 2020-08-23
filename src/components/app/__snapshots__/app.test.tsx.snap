@@ -172,6 +172,11 @@ exports[`App renders correctly 1`] = `
           <a
             className="catalog__genres-link"
             onClick={[Function]}
+            style={
+              Object {
+                "cursor": "pointer",
+              }
+            }
           >
             All genres
           </a>
@@ -182,6 +187,11 @@ exports[`App renders correctly 1`] = `
           <a
             className="catalog__genres-link"
             onClick={[Function]}
+            style={
+              Object {
+                "cursor": "pointer",
+              }
+            }
           >
             Adventure
           </a>
@@ -192,6 +202,11 @@ exports[`App renders correctly 1`] = `
           <a
             className="catalog__genres-link"
             onClick={[Function]}
+            style={
+              Object {
+                "cursor": "pointer",
+              }
+            }
           >
             Comedy
           </a>
@@ -202,6 +217,11 @@ exports[`App renders correctly 1`] = `
           <a
             className="catalog__genres-link"
             onClick={[Function]}
+            style={
+              Object {
+                "cursor": "pointer",
+              }
+            }
           >
             Fantasy
           </a>

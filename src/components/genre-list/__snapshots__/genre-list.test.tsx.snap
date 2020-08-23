@@ -10,6 +10,11 @@ exports[`GenreList renders correctly 1`] = `
     <a
       className="catalog__genres-link"
       onClick={[Function]}
+      style={
+        Object {
+          "cursor": "pointer",
+        }
+      }
     >
       All genres
     </a>
@@ -20,6 +25,11 @@ exports[`GenreList renders correctly 1`] = `
     <a
       className="catalog__genres-link"
       onClick={[Function]}
+      style={
+        Object {
+          "cursor": "pointer",
+        }
+      }
     >
       Action
     </a>
@@ -30,6 +40,11 @@ exports[`GenreList renders correctly 1`] = `
     <a
       className="catalog__genres-link"
       onClick={[Function]}
+      style={
+        Object {
+          "cursor": "pointer",
+        }
+      }
     >
       Adventure
     </a>
@@ -40,6 +55,11 @@ exports[`GenreList renders correctly 1`] = `
     <a
       className="catalog__genres-link"
       onClick={[Function]}
+      style={
+        Object {
+          "cursor": "pointer",
+        }
+      }
     >
       Comedy
     </a>
@@ -50,6 +70,11 @@ exports[`GenreList renders correctly 1`] = `
     <a
       className="catalog__genres-link"
       onClick={[Function]}
+      style={
+        Object {
+          "cursor": "pointer",
+        }
+      }
     >
       Crime
     </a>
@@ -60,6 +85,11 @@ exports[`GenreList renders correctly 1`] = `
     <a
       className="catalog__genres-link"
       onClick={[Function]}
+      style={
+        Object {
+          "cursor": "pointer",
+        }
+      }
     >
       Drama
     </a>
@@ -70,6 +100,11 @@ exports[`GenreList renders correctly 1`] = `
     <a
       className="catalog__genres-link"
       onClick={[Function]}
+      style={
+        Object {
+          "cursor": "pointer",
+        }
+      }
     >
       Fantasy
     </a>
@@ -80,6 +115,11 @@ exports[`GenreList renders correctly 1`] = `
     <a
       className="catalog__genres-link"
       onClick={[Function]}
+      style={
+        Object {
+          "cursor": "pointer",
+        }
+      }
     >
       Thriller
     </a>

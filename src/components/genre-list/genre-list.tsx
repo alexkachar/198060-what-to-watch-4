@@ -17,6 +17,7 @@ const GenreList = (props: Props) => {
           key={genre}
         >
           <a className="catalog__genres-link"
+            style={{cursor: `pointer`}}
             onClick={(evt) => {
               evt.preventDefault();
               onGenreSelect(genre);

@@ -18,6 +18,11 @@ exports[`Catalog renders correctly 1`] = `
       <a
         className="catalog__genres-link"
         onClick={[Function]}
+        style={
+          Object {
+            "cursor": "pointer",
+          }
+        }
       >
         All genres
       </a>
@@ -28,6 +33,11 @@ exports[`Catalog renders correctly 1`] = `
       <a
         className="catalog__genres-link"
         onClick={[Function]}
+        style={
+          Object {
+            "cursor": "pointer",
+          }
+        }
       >
         Action
       </a>
@@ -38,6 +48,11 @@ exports[`Catalog renders correctly 1`] = `
       <a
         className="catalog__genres-link"
         onClick={[Function]}
+        style={
+          Object {
+            "cursor": "pointer",
+          }
+        }
       >
         Adventure
       </a>
@@ -48,6 +63,11 @@ exports[`Catalog renders correctly 1`] = `
       <a
         className="catalog__genres-link"
         onClick={[Function]}
+        style={
+          Object {
+            "cursor": "pointer",
+          }
+        }
       >
         Comedy
       </a>
@@ -58,6 +78,11 @@ exports[`Catalog renders correctly 1`] = `
       <a
         className="catalog__genres-link"
         onClick={[Function]}
+        style={
+          Object {
+            "cursor": "pointer",
+          }
+        }
       >
         Crime
       </a>
@@ -68,6 +93,11 @@ exports[`Catalog renders correctly 1`] = `
       <a
         className="catalog__genres-link"
         onClick={[Function]}
+        style={
+          Object {
+            "cursor": "pointer",
+          }
+        }
       >
         Drama
       </a>
@@ -78,6 +108,11 @@ exports[`Catalog renders correctly 1`] = `
       <a
         className="catalog__genres-link"
         onClick={[Function]}
+        style={
+          Object {
+            "cursor": "pointer",
+          }
+        }
       >
         Fantasy
       </a>
@@ -88,6 +123,11 @@ exports[`Catalog renders correctly 1`] = `
       <a
         className="catalog__genres-link"
         onClick={[Function]}
+        style={
+          Object {
+            "cursor": "pointer",
+          }
+        }
       >
         Thriller
       </a>
