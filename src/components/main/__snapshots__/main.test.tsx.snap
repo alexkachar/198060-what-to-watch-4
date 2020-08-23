@@ -130,6 +130,24 @@ exports[`Main renders correctly 1`] = `
                 Play
               </span>
             </button>
+            <a
+              className="btn btn--list movie-card__button"
+              href="/signin"
+              onClick={[Function]}
+            >
+              <svg
+                height={20}
+                viewBox="0 0 19 20"
+                width={19}
+              >
+                <use
+                  xlinkHref="#add"
+                />
+              </svg>
+              <span>
+                My list
+              </span>
+            </a>
           </div>
         </div>
       </div>

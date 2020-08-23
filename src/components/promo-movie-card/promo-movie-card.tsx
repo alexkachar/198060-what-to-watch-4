@@ -3,20 +3,24 @@ import * as React from 'react';
 import Header from '../header/header';
 import Loader from '../loader/loader';
 import Movie from '../../interfaces/movie';
+import AddButton from '../partials/add-button/add-button';
 
 interface Props {
   promoMovie: Movie;
   isAuth: boolean;
+  onSetFavoriteStatus: (movieId: number | string, isFavorite: boolean) => void;
 }
 
 const PromoMovieCard = (props: Props) => {
-  const {promoMovie, isAuth} = props;
+  const {promoMovie, isAuth, onSetFavoriteStatus} = props;
 
   if (!promoMovie) {
     return <Loader />;
   }
 
   const {
+    id,
+    isFavorite,
     title,
     genre,
     released,
@@ -49,12 +53,12 @@ const PromoMovieCard = (props: Props) => {
                 </svg>
                 <span>Play</span>
               </button>
-              {isAuth && <button className="btn btn--list movie-card__button" type="button">
-                <svg viewBox="0 0 19 20" width={19} height={20}>
-                  <use xlinkHref="#add" />
-                </svg>
-                <span>My list</span>
-              </button>}
+              <AddButton
+                id={id}
+                isAuth={isAuth}
+                isFavorite={isFavorite}
+                onSetFavoriteStatus={onSetFavoriteStatus}
+              />
             </div>
           </div>
         </div>

@@ -25,6 +25,7 @@ it(`Main renders correctly`, () => {
               isAuth={false}
               onGenreSelect={jest.fn()}
               onShowMoreClick={jest.fn()}
+              onSetFavoriteStatus={jest.fn()}
             />
           </BrowserRouter>
         </Provider>, {

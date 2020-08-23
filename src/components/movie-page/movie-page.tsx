@@ -1,5 +1,6 @@
 import * as React from 'react';
 import {connect} from 'react-redux';
+import {Link} from 'react-router-dom';
 
 import Footer from '../footer/footer';
 import Loader from '../loader/loader';
@@ -12,16 +13,18 @@ import {getAuthFlag} from '../../store/reducers/user/selectors';
 import UiActionCreator from '../../store/actions/ui/ui';
 
 import {reduceMovies, filterMoviesByGenre, excludeMovieById} from '../../utils';
-import {RECOMENDED_MOVIES_LIMIT} from '../../constants';
+import {RECOMENDED_MOVIES_LIMIT, AppRoutes} from '../../constants';
 
 import Movie from '../../interfaces/movie';
 import MovieInfo from '../movie-info/movie-info';
+import AddButton from '../partials/add-button/add-button';
 interface Props {
   movieId: string;
   movie: Movie;
   movies: Movie[];
   isAuth: boolean;
   onSetMovieId: (movieId: number | string) => void;
+  onSetFavoriteStatus: (movieId: number | string, isFavorite: boolean) => void;
 }
 
 class MoviePage extends React.PureComponent<Props> {
@@ -52,8 +55,10 @@ class MoviePage extends React.PureComponent<Props> {
       return <Loader />;
     }
 
-    const {movie, movies, isAuth} = this.props;
+    const {movie, movies, isAuth, onSetFavoriteStatus} = this.props;
     const {
+      id,
+      isFavorite,
       title,
       genre,
       posterImage,
@@ -86,13 +91,13 @@ class MoviePage extends React.PureComponent<Props> {
                     </svg>
                     <span>Play</span>
                   </button>
-                  {isAuth && <button className="btn btn--list movie-card__button" type="button">
-                    <svg viewBox="0 0 19 20" width={19} height={20}>
-                      <use xlinkHref="#add" />
-                    </svg>
-                    <span>My list</span>
-                  </button>}
-                  {isAuth && <a href="add-review.html" className="btn movie-card__button">Add review</a>}
+                  <AddButton
+                    id={id}
+                    isAuth={isAuth}
+                    isFavorite={isFavorite}
+                    onSetFavoriteStatus={onSetFavoriteStatus}
+                  />
+                  {isAuth && <Link to={AppRoutes.ADD_REVIEW} className="btn movie-card__button">Add review</Link>}
                 </div>
               </div>
             </div>
@@ -134,7 +139,7 @@ const mapDispatchToProps = (dispatch) => ({
   onSetMovieId: (movieId) => {
     const newMovieId = parseInt(movieId, 10);
     dispatch(UiActionCreator.setMovieId(newMovieId));
-  },
+  }
 
 });
 

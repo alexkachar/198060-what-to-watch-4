@@ -15,6 +15,7 @@ it(`PromoMovieCard renders correctly`, () => {
             <PromoMovieCard
               promoMovie={MOCK_MOVIES[0]}
               isAuth={false}
+              onSetFavoriteStatus={jest.fn()}
             />
           </BrowserRouter>
         </Provider>, {

@@ -16,15 +16,17 @@ interface Props {
   loading: boolean;
   onGenreSelect: (genre: string) => void;
   onShowMoreClick: () => void;
+  onSetFavoriteStatus: (movieId: number | string, isFavorite: boolean) => void;
 }
 
 const Main = (props: Props) => {
-  const {movies, promoMovie, genres, selectedGenre, showMoreAccess, loading, isAuth, onGenreSelect, onShowMoreClick} = props;
+  const {movies, promoMovie, genres, selectedGenre, showMoreAccess, loading, isAuth, onGenreSelect, onShowMoreClick, onSetFavoriteStatus} = props;
   return loading ? <Loader /> : (
     <div>
       <PromoMovieCard
         promoMovie={promoMovie}
         isAuth={isAuth}
+        onSetFavoriteStatus={onSetFavoriteStatus}
       />
       <div className="page-content">
         <Catalog

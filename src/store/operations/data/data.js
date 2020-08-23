@@ -37,7 +37,7 @@ const Operation = {
     return api.post(`/favorite/${offerId}/${request}`, {})
       .then(() => {
         dispatch(Operation.loadFavorites());
-        dispatch(Operation.loadOffers());
+        dispatch(Operation.loadMovies());
       });
   }
 

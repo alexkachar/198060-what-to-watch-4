@@ -10,6 +10,8 @@ import {getAuthFlag} from '../../store/reducers/user/selectors';
 import {MOVIES_LIMIT_ADD_STEP} from '../../constants';
 import UiActionCreator from '../../store/actions/ui/ui';
 import UserOperation from '../../store/operations/user/user';
+import DataOperation from '../../store/operations/data/data';
+
 import Movie from '../../interfaces/movie';
 import Main from '../main/main';
 import MoviePage from '../movie-page/movie-page';
@@ -27,6 +29,7 @@ interface Props {
   onGenreSelect: (genre: string) => void;
   onShowMoreClick: () => void;
   onLogin: (authData: {}) => void;
+  onSetFavoriteStatus: (movieId: number | string, isFavorite: boolean) => void;
 }
 
 const App = (props: Props) => {
@@ -40,7 +43,8 @@ const App = (props: Props) => {
     loading,
     onGenreSelect,
     onShowMoreClick,
-    onLogin
+    onLogin,
+    onSetFavoriteStatus
   } = props;
   const showMoreAccess = movies.length > moviesLimit;
   const moviesToList = movies.slice(0, moviesLimit);
@@ -58,6 +62,7 @@ const App = (props: Props) => {
                 showMoreAccess={showMoreAccess}
                 onGenreSelect={onGenreSelect}
                 onShowMoreClick={onShowMoreClick}
+                onSetFavoriteStatus={onSetFavoriteStatus}
                 loading={loading}
                 isAuth={isAuth}
               />
@@ -70,6 +75,7 @@ const App = (props: Props) => {
             return (
               <MoviePage
                 movieId={id}
+                onSetFavoriteStatus={onSetFavoriteStatus}
               />
             );
           }}
@@ -121,6 +127,10 @@ const mapDispatchToProps = (dispatch) => ({
 
   onLogin(authData: {}) {
     dispatch(UserOperation.login(authData));
+  },
+
+  onSetFavoriteStatus(movieId, isFavorite: boolean) {
+    dispatch(DataOperation.setFavoriteStatus(movieId, isFavorite));
   },
 
 });

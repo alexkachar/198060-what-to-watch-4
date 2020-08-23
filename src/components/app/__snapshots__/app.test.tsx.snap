@@ -130,9 +130,10 @@ exports[`App renders correctly 1`] = `
                 Play
               </span>
             </button>
-            <button
+            <a
               className="btn btn--list movie-card__button"
-              type="button"
+              href="/"
+              onClick={[Function]}
             >
               <svg
                 height={20}
@@ -146,7 +147,7 @@ exports[`App renders correctly 1`] = `
               <span>
                 My list
               </span>
-            </button>
+            </a>
           </div>
         </div>
       </div>
