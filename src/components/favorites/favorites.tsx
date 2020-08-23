@@ -2,9 +2,9 @@ import * as React from 'react';
 import {connect} from 'react-redux';
 import {Redirect} from 'react-router-dom';
 
+import DataOperation from '../../store/operations/data/data';
 import {getFavorites} from '../../store/reducers/data/selectors';
 import {getAuthFlag} from '../../store/reducers/user/selectors';
-import {DataOperation} from '../../store/operations/data/data';
 import {AppRoutes} from '../../constants';
 
 import SvgInjection from '../partials/svg-injection/svg-injection';

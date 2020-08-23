@@ -119,7 +119,7 @@ Array [
       WTW
     </h1>
     <header
-      className="page-header movie-card__head"
+      className="page-header user-page__head"
     >
       <div
         className="logo"
@@ -299,6 +299,8 @@ Array [
       >
         <a
           className="logo__link logo__link--light"
+          href="/"
+          onClick={[Function]}
         >
           <span
             className="logo__letter logo__letter--1"

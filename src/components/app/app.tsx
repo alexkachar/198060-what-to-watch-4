@@ -14,6 +14,7 @@ import Movie from '../../interfaces/movie';
 import Main from '../main/main';
 import MoviePage from '../movie-page/movie-page';
 import Login from '../login/login';
+import Favorites from '../favorites/favorites';
 
 interface Props {
   movies: Movie[];
@@ -79,6 +80,14 @@ const App = (props: Props) => {
                 loading={loading}
                 isAuth={isAuth}
               />
+            );
+          }}
+        />
+
+        <Route exact path={AppRoutes.FAVORITES}
+          render={() => {
+            return (
+              <Favorites />
             );
           }}
         />

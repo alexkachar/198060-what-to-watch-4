@@ -17,7 +17,7 @@ const Header = (props: Props) => {
   return (
     <>
       <h1 className="visually-hidden">WTW</h1>
-      <header className="page-header movie-card__head">
+      <header className={`page-header ${isFavoritesHeader ? `user-page__head` : `movie-card__head`}`}>
         <div className="logo">
           <Link to={AppRoutes.MAIN} className="logo__link">
             <span className="logo__letter logo__letter--1">W</span>
@@ -29,12 +29,12 @@ const Header = (props: Props) => {
         {isFavoritesHeader && <h1 className="page-title user-page__title">My list</h1>}
 
         <div className="user-block">
-          <Link to={AppRoutes.FAVORITES} className="user-block__avatar" style={{textDecoration: `none`}}>
-            {isAuth
-              ? <img src={`${AVATAR_BASE}${user.avatarUrl}`} style={{borderRadius: `50%`, width: `63px`, height: `63px`}} />
-              : <p className="user-block__link">Sign in</p>
-            }
-          </Link>
+          {isAuth
+            ? <Link to={AppRoutes.FAVORITES} className="user-block__avatar" style={{textDecoration: `none`}}>
+              <img src={`${AVATAR_BASE}${user.avatarUrl}`} style={{borderRadius: `50%`, width: `63px`, height: `63px`}} />
+            </Link>
+            : <Link to={AppRoutes.LOGIN} className="user-block__link">Sign in</Link>
+          }
         </div>
       </header>
     </>
