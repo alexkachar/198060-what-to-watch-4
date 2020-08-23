@@ -1,6 +1,7 @@
 
 import DataActionCreator from '../../actions/data/data';
 import {formatMovie, formatMovies} from '../../../utils';
+import {RequestCodes} from '../../../constants';
 
 const Operation = {
   loadMovies: () => (dispatch, getState, api) => {
@@ -30,6 +31,15 @@ const Operation = {
             dispatch(DataActionCreator.getFavorites(formatMovies(response.data)));
           });
   },
+
+  setFavoriteStatus: (offerId, isFavorite) => (dispatch, getState, api) => {
+    let request = isFavorite ? RequestCodes.REMOVE : RequestCodes.ADD;
+    return api.post(`/favorite/${offerId}/${request}`, {})
+      .then(() => {
+        dispatch(Operation.loadFavorites());
+        dispatch(Operation.loadOffers());
+      });
+  }
 
 };
 

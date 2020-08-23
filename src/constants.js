@@ -19,6 +19,11 @@ export const ResponseCodes = {
   SUCCESS: 200
 };
 
+export const RequestCodes = {
+  ADD: 1,
+  REMOVE: 0
+};
+
 export const RECOMENDED_MOVIES_LIMIT = 4;
 
 export const MovieTabs = {

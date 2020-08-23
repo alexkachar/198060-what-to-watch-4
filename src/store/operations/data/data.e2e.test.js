@@ -4,6 +4,7 @@ import Operation from './data';
 import {ActionTypes} from '../../actions/data/data';
 import RAW_MOVIES from '../../../test-data/mock-movies';
 import {formatMovie, formatMovies} from '../../../utils';
+import {RequestCodes} from '../../../constants';
 
 const api = createAPI(jest.fn());
 
@@ -78,6 +79,27 @@ describe(`Load operation works correctly`, () => {
           type: ActionTypes.GET_FAVORITES,
           payload: formatMovies(RAW_MOVIES)
         });
+      });
+  });
+
+  it(`Should make a correct API call to /favorite add set movie as favorite`, () => {
+    const apiMock = new MockAdapter(api);
+    const dispatch = jest.fn();
+    const dataLoader = Operation.loadFavorites();
+    const movieId = 1;
+
+    apiMock
+    .onGet(`/favorite`).reply(200, RAW_MOVIES)
+    .onPost(`/favorite/${movieId}/${RequestCodes.ADD}`).reply(200, {});
+
+    return dataLoader(dispatch, jest.fn(), api)
+      .then(() => {
+        expect(dispatch).toHaveBeenCalledTimes(1);
+        expect(dispatch).toHaveBeenNthCalledWith(1, {
+          type: ActionTypes.GET_FAVORITES,
+          payload: formatMovies(RAW_MOVIES)
+        });
+
       });
   });
 
