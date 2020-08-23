@@ -1,6 +1,5 @@
 import * as React from 'react';
 
-import SvgInjection from '../partials/svg-injection/svg-injection';
 import Header from '../header/header';
 import Movie from '../../interfaces/movie';
 
@@ -25,7 +24,6 @@ const PromoMovieCard = (props: Props) => {
 
   return (
   <>
-    <SvgInjection />
     <section className="movie-card">
       <div className="movie-card__bg">
         <img src={backgroundImage} alt={title} />
@@ -44,7 +42,7 @@ const PromoMovieCard = (props: Props) => {
             </p>
             <div className="movie-card__buttons">
               <button className="btn btn--play movie-card__button" type="button">
-                <svg viewBox="0 0 19 19" width={19} height={19}>
+                <svg viewBox="0 0 21 19" width={21} height={19}>
                   <use xlinkHref="#play-s" />
                 </svg>
                 <span>Play</span>

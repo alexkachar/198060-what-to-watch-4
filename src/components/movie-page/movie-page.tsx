@@ -1,7 +1,6 @@
 import * as React from 'react';
 import {connect} from 'react-redux';
 
-import SvgInjection from '../partials/svg-injection/svg-injection';
 import Footer from '../footer/footer';
 import MoviesList from '../movies-list/movies-list';
 import Header from '../header/header';
@@ -64,7 +63,6 @@ class MoviePage extends React.PureComponent<Props> {
 
     return (
       <div>
-        <SvgInjection />
         <section className="movie-card movie-card--full" style={{backgroundColor: `${backgroundColor}`}}>
           <div className="movie-card__hero">
             <div className="movie-card__bg">
@@ -80,7 +78,7 @@ class MoviePage extends React.PureComponent<Props> {
                 </p>
                 <div className="movie-card__buttons">
                   <button className="btn btn--play movie-card__button" type="button">
-                    <svg viewBox="0 0 19 19" width={19} height={19}>
+                    <svg viewBox="0 0 21 19" width={21} height={19}>
                       <use xlinkHref="#play-s" />
                     </svg>
                     <span>Play</span>

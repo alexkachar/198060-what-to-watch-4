@@ -7,7 +7,6 @@ import {getFavorites} from '../../store/reducers/data/selectors';
 import {getAuthFlag} from '../../store/reducers/user/selectors';
 import {AppRoutes} from '../../constants';
 
-import SvgInjection from '../partials/svg-injection/svg-injection';
 import Header from '../header/header';
 import Footer from '../footer/footer';
 import MovieCard from '../movie-card/movie-card';
@@ -37,8 +36,6 @@ class Favorites extends React.PureComponent<Props> {
     const {favorites} = this.props;
     return (
       <>
-        <SvgInjection />
-
         <div className="user-page">
 
           <Header isFavoritesHeader={true} />
