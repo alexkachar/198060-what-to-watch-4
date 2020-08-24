@@ -9,8 +9,8 @@ import {AppRoutes} from '../../constants';
 
 import Header from '../header/header';
 import Footer from '../footer/footer';
-import MovieCard from '../movie-card/movie-card';
 import Movie from '../../interfaces/movie';
+import MoviesList from '../movies-list/movies-list';
 
 interface Props {
   onRequestFavorites: () => void;
@@ -42,7 +42,7 @@ class Favorites extends React.PureComponent<Props> {
           <section className="catalog">
             <h2 className="catalog__title visually-hidden">Catalog</h2>
 
-            {favorites.map((movie) => <MovieCard movie={movie} key={movie.id} />)}
+            <MoviesList movies={favorites} />
 
           </section>
           <Footer />

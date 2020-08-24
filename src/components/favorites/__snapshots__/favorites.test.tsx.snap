@@ -76,111 +76,115 @@ exports[`MoviePage renders correctly 1`] = `
     >
       Catalog
     </h2>
-    <article
-      className="small-movie-card catalog__movies-card"
+    <div
+      className="catalog__movies-list"
     >
-      <a
-        href="/film/1"
-        onClick={[Function]}
-      >
-        <div
-          className="small-movie-card__image"
-        >
-          <img
-            alt="The Grand Budapest Hotel"
-            height={175}
-            src="img/the-grand-budapest-hotel.jpg"
-            width={280}
-          />
-        </div>
-      </a>
-      <h3
-        className="small-movie-card__title"
+      <article
+        className="small-movie-card catalog__movies-card"
       >
         <a
-          className="small-movie-card__link"
           href="/film/1"
           onClick={[Function]}
-          style={
-            Object {
-              "color": "#c9b37e",
-            }
-          }
         >
-          The Grand Budapest Hotel
+          <div
+            className="small-movie-card__image"
+          >
+            <img
+              alt="The Grand Budapest Hotel"
+              height={175}
+              src="img/the-grand-budapest-hotel.jpg"
+              width={280}
+            />
+          </div>
         </a>
-      </h3>
-    </article>
-    <article
-      className="small-movie-card catalog__movies-card"
-    >
-      <a
-        href="/film/2"
-        onClick={[Function]}
-      >
-        <div
-          className="small-movie-card__image"
+        <h3
+          className="small-movie-card__title"
         >
-          <img
-            alt="Moonrise Kingdom"
-            height={175}
-            src="https://htmlacademy-react-3.appspot.com/wtw/static/film/preview/moonrise-kingdom.jpg"
-            width={280}
-          />
-        </div>
-      </a>
-      <h3
-        className="small-movie-card__title"
+          <a
+            className="small-movie-card__link"
+            href="/film/1"
+            onClick={[Function]}
+            style={
+              Object {
+                "color": "#c9b37e",
+              }
+            }
+          >
+            The Grand Budapest Hotel
+          </a>
+        </h3>
+      </article>
+      <article
+        className="small-movie-card catalog__movies-card"
       >
         <a
-          className="small-movie-card__link"
           href="/film/2"
           onClick={[Function]}
-          style={
-            Object {
-              "color": "#c9b37e",
-            }
-          }
         >
-          Moonrise Kingdom
+          <div
+            className="small-movie-card__image"
+          >
+            <img
+              alt="Moonrise Kingdom"
+              height={175}
+              src="https://htmlacademy-react-3.appspot.com/wtw/static/film/preview/moonrise-kingdom.jpg"
+              width={280}
+            />
+          </div>
         </a>
-      </h3>
-    </article>
-    <article
-      className="small-movie-card catalog__movies-card"
-    >
-      <a
-        href="/film/15"
-        onClick={[Function]}
-      >
-        <div
-          className="small-movie-card__image"
+        <h3
+          className="small-movie-card__title"
         >
-          <img
-            alt="Fantastic Beasts: The Crimes of Grindelwald"
-            height={175}
-            src="https://htmlacademy-react-3.appspot.com/wtw/static/film/preview/fantastic-beasts-the-crimes-of-grindelwald.jpg"
-            width={280}
-          />
-        </div>
-      </a>
-      <h3
-        className="small-movie-card__title"
+          <a
+            className="small-movie-card__link"
+            href="/film/2"
+            onClick={[Function]}
+            style={
+              Object {
+                "color": "#c9b37e",
+              }
+            }
+          >
+            Moonrise Kingdom
+          </a>
+        </h3>
+      </article>
+      <article
+        className="small-movie-card catalog__movies-card"
       >
         <a
-          className="small-movie-card__link"
           href="/film/15"
           onClick={[Function]}
-          style={
-            Object {
-              "color": "#c9b37e",
-            }
-          }
         >
-          Fantastic Beasts: The Crimes of Grindelwald
+          <div
+            className="small-movie-card__image"
+          >
+            <img
+              alt="Fantastic Beasts: The Crimes of Grindelwald"
+              height={175}
+              src="https://htmlacademy-react-3.appspot.com/wtw/static/film/preview/fantastic-beasts-the-crimes-of-grindelwald.jpg"
+              width={280}
+            />
+          </div>
         </a>
-      </h3>
-    </article>
+        <h3
+          className="small-movie-card__title"
+        >
+          <a
+            className="small-movie-card__link"
+            href="/film/15"
+            onClick={[Function]}
+            style={
+              Object {
+                "color": "#c9b37e",
+              }
+            }
+          >
+            Fantastic Beasts: The Crimes of Grindelwald
+          </a>
+        </h3>
+      </article>
+    </div>
   </section>
   <footer
     className="page-footer"
