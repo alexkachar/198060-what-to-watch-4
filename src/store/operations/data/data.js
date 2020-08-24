@@ -38,6 +38,7 @@ const Operation = {
       .then(() => {
         dispatch(Operation.loadFavorites());
         dispatch(Operation.loadMovies());
+        dispatch(Operation.loadPromoMovie());
       });
   }
 

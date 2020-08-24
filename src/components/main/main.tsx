@@ -20,7 +20,19 @@ interface Props {
 }
 
 const Main = (props: Props) => {
-  const {movies, promoMovie, genres, selectedGenre, showMoreAccess, loading, isAuth, onGenreSelect, onShowMoreClick, onSetFavoriteStatus} = props;
+  const {
+    movies,
+    promoMovie,
+    genres,
+    selectedGenre,
+    showMoreAccess,
+    loading,
+    isAuth,
+    onGenreSelect,
+    onShowMoreClick,
+    onSetFavoriteStatus,
+  } = props;
+
   return loading ? <Loader /> : (
     <div>
       <PromoMovieCard

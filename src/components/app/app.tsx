@@ -44,8 +44,9 @@ const App = (props: Props) => {
     onGenreSelect,
     onShowMoreClick,
     onLogin,
-    onSetFavoriteStatus
+    onSetFavoriteStatus,
   } = props;
+
   const showMoreAccess = movies.length > moviesLimit;
   const moviesToList = movies.slice(0, moviesLimit);
   return (
