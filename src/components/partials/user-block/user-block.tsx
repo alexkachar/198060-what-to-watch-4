@@ -10,7 +10,7 @@ interface Props {
   isAuth: boolean;
 }
 
-const Header = (props: Props) => {
+const UserBlock = (props: Props) => {
   const {isAuth, user} = props;
 
   return (
@@ -30,4 +30,4 @@ const mapStateToProps = (state) => ({
   isAuth: getAuthFlag(state)
 });
 
-export default connect(mapStateToProps, null)(Header);
+export default connect(mapStateToProps, null)(UserBlock);

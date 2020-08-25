@@ -97,7 +97,7 @@ class MoviePage extends React.PureComponent<Props> {
                     isFavorite={isFavorite}
                     onSetFavoriteStatus={onSetFavoriteStatus}
                   />
-                  {isAuth && <Link to={AppRoutes.ADD_REVIEW} className="btn movie-card__button">Add review</Link>}
+                  <Link to={AppRoutes.ADD_REVIEW} className="btn movie-card__button">Add review</Link>
                 </div>
               </div>
             </div>

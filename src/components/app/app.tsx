@@ -17,6 +17,7 @@ import Main from '../main/main';
 import MoviePage from '../movie-page/movie-page';
 import Login from '../login/login';
 import Favorites from '../favorites/favorites';
+import ReviewForm from '../review-form/review-form';
 
 interface Props {
   movies: Movie[];
@@ -70,6 +71,7 @@ const App = (props: Props) => {
             );
           }}
         />
+
         <Route exact path={AppRoutes.MOVIE}
           render={({match}) => {
             const {id} = match.params;
@@ -81,6 +83,19 @@ const App = (props: Props) => {
             );
           }}
         />
+
+        <Route exact path={AppRoutes.ADD_REVIEW}
+          render={({match}) => {
+            const {id} = match.params;
+            return (
+              <ReviewForm
+                movieId={id}
+                isAuth={isAuth}
+              />
+            );
+          }}
+        />
+
         <Route exact path={AppRoutes.LOGIN}
           render={() => {
             return (
