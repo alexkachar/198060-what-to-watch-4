@@ -1,30 +1,124 @@
 import * as React from 'react';
 import {Redirect} from 'react-router-dom';
 import {connect} from 'react-redux';
+import {compose} from 'recompose';
 
 import {AppRoutes} from '../../constants';
 import {getMovieById} from '../../store/reducers/ui/selectors';
+import {getSendingFlag, getErrorFlag} from '../../store/reducers/review/selectors';
+import ReviewOperation from '../../store/operations/review/review';
+import ActionCreator from '../../store/actions/review/review';
+import withFormValidation from '../../hocs/with-form-validation/with-form-validation';
+
 import Logo from '../partials/logo/logo';
 import UserBlock from '../partials/user-block/user-block';
 import Breadcrumbs from '../partials/breadcrumbs/breadcrumbs';
 import Loader from '../loader/loader';
 import Movie from '../../interfaces/movie';
 
+const MAX_RATING = 5;
+
 interface Props {
   movieId: number | string;
   movie: Movie;
   isAuth: boolean;
+  rating: number;
+  sending: boolean;
+  error: boolean;
+  text: string;
+  isRatingValid: boolean;
+  isTextValid: boolean;
+  onRatingChange: () => void;
+  onTextChange: () => void;
+  onSetSendingFlag: (flag: boolean) => void;
+  onSubmitReview: (offerId: number | string, review: {rating: number; text: string}) => void;
 }
 
 class ReviewForm extends React.PureComponent <Props> {
+    private _formRef;
+    private _submitRef;
+    private _textRef;
+
+  constructor(props) {
+    super(props);
+
+    this._formRef = React.createRef();
+    this._submitRef = React.createRef();
+    this._textRef = React.createRef();
+
+    this._setSubmitAccess = this._setSubmitAccess.bind(this);
+    this._setTextAreaAccess = this._setTextAreaAccess.bind(this);
+    this._handleSubmit = this._handleSubmit.bind(this);
+    this._handleFormReset = this._handleFormReset.bind(this);
+
+  }
+
+  componentDidUpdate() {
+    this._setSubmitAccess();
+    this._setTextAreaAccess();
+  }
+
+  _setSubmitAccess() {
+    const {isTextValid, isRatingValid} = this.props;
+    const isValid = isRatingValid && isTextValid;
+    const submitButton = this._submitRef.current;
+    const {sending} = this.props;
+
+    if (!isValid || sending) {
+      submitButton.setAttribute(`disabled`, `disabled`);
+    } else {
+      submitButton.removeAttribute(`disabled`);
+    }
+  }
+
+  _setTextAreaAccess() {
+    const {sending} = this.props;
+    const textArea = this._textRef.current;
+
+    if (sending) {
+      textArea.setAttribute(`disabled`, `disabled`);
+    } else {
+      textArea.removeAttribute(`disabled`);
+    }
+  }
+
+  _handleFormReset() {
+    const form = this._formRef.current;
+    const {error, sending} = this.props;
+
+    if (sending && !error) {
+      form.reset();
+    }
+  }
+
+  _handleSubmit(evt) {
+    const {onSubmitReview, onSetSendingFlag} = this.props;
+    const {rating, isRatingValid, text, isTextValid} = this.props;
+    const {movieId} = this.props;
+
+    evt.preventDefault();
+
+    if (isRatingValid && isTextValid) {
+      onSetSendingFlag(true);
+      onSubmitReview(movieId, {rating, text});
+      this._handleFormReset();
+    }
+  }
 
   render() {
 
-    const {isAuth, movie} = this.props;
+    const {isAuth} = this.props;
 
     if (!isAuth) {
       return <Redirect to={AppRoutes.LOGIN} />;
     }
+
+    const {
+      movie,
+      error,
+      onRatingChange,
+      onTextChange
+    } = this.props;
 
     if (!movie) {
       return <Loader />;
@@ -62,25 +156,54 @@ class ReviewForm extends React.PureComponent <Props> {
 
         </div>
         <div className="add-review">
-          <form action="#" className="add-review__form">
+          <form
+            action="#"
+            className="add-review__form"
+            onSubmit={this._handleSubmit}
+            ref={this._formRef}
+          >
             <div className="rating">
               <div className="rating__stars">
-                <input className="rating__input" id="star-1" type="radio" name="rating" defaultValue={1} />
-                <label className="rating__label" htmlFor="star-1">Rating 1</label>
-                <input className="rating__input" id="star-2" type="radio" name="rating" defaultValue={2} />
-                <label className="rating__label" htmlFor="star-2">Rating 2</label>
-                <input className="rating__input" id="star-3" type="radio" name="rating" defaultValue={3} defaultChecked />
-                <label className="rating__label" htmlFor="star-3">Rating 3</label>
-                <input className="rating__input" id="star-4" type="radio" name="rating" defaultValue={4} />
-                <label className="rating__label" htmlFor="star-4">Rating 4</label>
-                <input className="rating__input" id="star-5" type="radio" name="rating" defaultValue={5} />
-                <label className="rating__label" htmlFor="star-5">Rating 5</label>
+
+                {Array.from(Array(MAX_RATING)).map((_, index) => {
+                  const starsCount = index + 1;
+                  return (
+                    <React.Fragment key={starsCount}>
+                      <input
+                        className="rating__input"
+                        id={`star-${starsCount}`}
+                        type="radio"
+                        name="rating"
+                        value={starsCount}
+                        onChange={onRatingChange}
+                      />
+                      <label className="rating__label" htmlFor={`star-${starsCount}`}>Rating {starsCount}</label>
+                    </React.Fragment>
+                  );
+                })}
+
+
               </div>
             </div>
             <div className="add-review__text" style={{background: `rgba(0,0,0,.26)`}}>
-              <textarea className="add-review__textarea" name="review-text" id="review-text" placeholder="Review text" defaultValue={``} />
+              <textarea
+                className="add-review__textarea"
+                name="review-text"
+                id="review-text"
+                placeholder="Review text"
+                defaultValue={``}
+                onChange={onTextChange}
+                ref={this._textRef}
+              />
               <div className="add-review__submit">
-                <button className="add-review__btn" type="submit">Post</button>
+                <button
+                  className="add-review__btn"
+                  type="submit"
+                  disabled
+                  ref={this._submitRef}
+                >
+                  Post
+                </button>
               </div>
             </div>
           </form>
@@ -92,6 +215,24 @@ class ReviewForm extends React.PureComponent <Props> {
 
 const mapStateToProps = (state) => ({
   movie: getMovieById(state),
+  sending: getSendingFlag(state),
+  error: getErrorFlag(state),
 });
 
-export default connect(mapStateToProps, null)(ReviewForm);
+const mapDispatchToProps = (dispatch) => ({
+  onSetSendingFlag(flag) {
+    dispatch(ActionCreator.setSendingFlag(flag));
+  },
+  onSubmitReview(offerId, reviewData) {
+    dispatch(ReviewOperation.submitReview(offerId, reviewData));
+  },
+});
+
+const withFormValidationAndConnect = compose(
+    connect(mapStateToProps, mapDispatchToProps),
+    withFormValidation
+);
+
+export {ReviewForm};
+
+export default withFormValidationAndConnect(ReviewForm);
