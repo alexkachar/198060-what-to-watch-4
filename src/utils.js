@@ -1,3 +1,5 @@
+import {Months} from './constants';
+
 export const extend = (a, b) => Object.assign({}, a, b);
 
 export const reduceGenresList = (genres) => genres.length >= 10 ? genres : genres.slice(0, 10);
@@ -55,6 +57,15 @@ export const formatRating = (rating) => {
     default:
       return `unknown`;
   }
+};
+
+export const convertDate = (date) => {
+  const dateObject = new Date(date);
+  const day = dateObject.getDate();
+  const month = Months[dateObject.getMonth()];
+  const year = dateObject.getFullYear();
+
+  return `${month} ${day}, ${year}`;
 };
 
 export const formatUser = (user) => ({

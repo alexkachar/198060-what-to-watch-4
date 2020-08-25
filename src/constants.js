@@ -48,3 +48,18 @@ export const LoginErrorMesseges = {
   PASSWORD: `Sorry, the password is too short`,
   LOGIN_FAILED: `We can’t recognize this email and password combination. Please try again.`
 };
+
+export const Months = [
+  `January`,
+  `February`,
+  `March`,
+  `April`,
+  `May`,
+  `June`,
+  `July`,
+  `August`,
+  `September`,
+  `October`,
+  `November`,
+  `December`
+];

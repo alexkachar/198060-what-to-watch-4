@@ -13,10 +13,10 @@ export default [
     "id": 2,
     "user": {
       "id": 7,
-      "name": `John Doe`
+      "name": `Amanda Greever`
     },
-    "rating": 7.2,
-    "comment": `Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.`,
+    "rating": 8.2,
+    "comment": `The mannered, madcap proceedings are often delightful, occasionally silly, and here and there, gruesome and/or heartbreaking.`,
     "date": `2020-06-02T13:12:46.569Z`
   }
 ];

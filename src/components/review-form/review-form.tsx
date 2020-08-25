@@ -39,178 +39,178 @@ class ReviewForm extends React.PureComponent <Props> {
     private _submitRef;
     private _textRef;
 
-  constructor(props) {
-    super(props);
+    constructor(props) {
+      super(props);
 
-    this._formRef = React.createRef();
-    this._submitRef = React.createRef();
-    this._textRef = React.createRef();
+      this._formRef = React.createRef();
+      this._submitRef = React.createRef();
+      this._textRef = React.createRef();
 
-    this._setSubmitAccess = this._setSubmitAccess.bind(this);
-    this._setTextAreaAccess = this._setTextAreaAccess.bind(this);
-    this._handleSubmit = this._handleSubmit.bind(this);
-    this._handleFormReset = this._handleFormReset.bind(this);
+      this._setSubmitAccess = this._setSubmitAccess.bind(this);
+      this._setTextAreaAccess = this._setTextAreaAccess.bind(this);
+      this._handleSubmit = this._handleSubmit.bind(this);
+      this._handleFormReset = this._handleFormReset.bind(this);
 
-  }
-
-  componentDidUpdate() {
-    this._setSubmitAccess();
-    this._setTextAreaAccess();
-  }
-
-  _setSubmitAccess() {
-    const {isTextValid, isRatingValid} = this.props;
-    const isValid = isRatingValid && isTextValid;
-    const submitButton = this._submitRef.current;
-    const {sending} = this.props;
-
-    if (!isValid || sending) {
-      submitButton.setAttribute(`disabled`, `disabled`);
-    } else {
-      submitButton.removeAttribute(`disabled`);
-    }
-  }
-
-  _setTextAreaAccess() {
-    const {sending} = this.props;
-    const textArea = this._textRef.current;
-
-    if (sending) {
-      textArea.setAttribute(`disabled`, `disabled`);
-    } else {
-      textArea.removeAttribute(`disabled`);
-    }
-  }
-
-  _handleFormReset() {
-    const form = this._formRef.current;
-    const {error, sending} = this.props;
-
-    if (sending && !error) {
-      form.reset();
-    }
-  }
-
-  _handleSubmit(evt) {
-    const {onSubmitReview, onSetSendingFlag} = this.props;
-    const {rating, isRatingValid, text, isTextValid} = this.props;
-    const {movieId} = this.props;
-
-    evt.preventDefault();
-
-    if (isRatingValid && isTextValid) {
-      onSetSendingFlag(true);
-      onSubmitReview(movieId, {rating, text});
-      this._handleFormReset();
-    }
-  }
-
-  render() {
-
-    const {isAuth} = this.props;
-
-    if (!isAuth) {
-      return <Redirect to={AppRoutes.LOGIN} />;
     }
 
-    const {
-      movie,
-      error,
-      onRatingChange,
-      onTextChange
-    } = this.props;
-
-    if (!movie) {
-      return <Loader />;
+    componentDidUpdate() {
+      this._setSubmitAccess();
+      this._setTextAreaAccess();
     }
 
-    const {
-      id,
-      title,
-      backgroundImage,
-      backgroundColor,
-      posterImage
-    } = movie;
+    _setSubmitAccess() {
+      const {isTextValid, isRatingValid} = this.props;
+      const isValid = isRatingValid && isTextValid;
+      const submitButton = this._submitRef.current;
+      const {sending} = this.props;
 
-    return (
-      <section className="movie-card movie-card--full" style={{backgroundColor: `${backgroundColor}`}}>
+      if (!isValid || sending) {
+        submitButton.setAttribute(`disabled`, `disabled`);
+      } else {
+        submitButton.removeAttribute(`disabled`);
+      }
+    }
 
-        <div className="movie-card__header">
-          <div className="movie-card__bg">
-            <img src={backgroundImage} alt={title} />
-          </div>
-          <h1 className="visually-hidden">WTW</h1>
+    _setTextAreaAccess() {
+      const {sending} = this.props;
+      const textArea = this._textRef.current;
 
-          <header className="page-header">
+      if (sending) {
+        textArea.setAttribute(`disabled`, `disabled`);
+      } else {
+        textArea.removeAttribute(`disabled`);
+      }
+    }
 
-            <Logo />
+    _handleFormReset() {
+      const form = this._formRef.current;
+      const {error, sending} = this.props;
 
-            <Breadcrumbs id={id} movieTitle={title} />
+      if (sending && !error) {
+        form.reset();
+      }
+    }
 
-            <UserBlock />
-          </header>
+    _handleSubmit(evt) {
+      const {onSubmitReview, onSetSendingFlag} = this.props;
+      const {rating, isRatingValid, text, isTextValid} = this.props;
+      const {movieId} = this.props;
 
-          <div className="movie-card__poster movie-card__poster--small">
-            <img src={posterImage} alt={title} width={218} height={327} />
-          </div>
+      evt.preventDefault();
 
-        </div>
-        <div className="add-review">
-          <form
-            action="#"
-            className="add-review__form"
-            onSubmit={this._handleSubmit}
-            ref={this._formRef}
-          >
-            <div className="rating">
-              <div className="rating__stars">
+      if (isRatingValid && isTextValid) {
+        onSetSendingFlag(true);
+        onSubmitReview(movieId, {rating, text});
+        this._handleFormReset();
+      }
+    }
 
-                {Array.from(Array(MAX_RATING)).map((_, index) => {
-                  const starsCount = index + 1;
-                  return (
-                    <React.Fragment key={starsCount}>
-                      <input
-                        className="rating__input"
-                        id={`star-${starsCount}`}
-                        type="radio"
-                        name="rating"
-                        value={starsCount}
-                        onChange={onRatingChange}
-                      />
-                      <label className="rating__label" htmlFor={`star-${starsCount}`}>Rating {starsCount}</label>
-                    </React.Fragment>
-                  );
-                })}
+    render() {
 
+      const {isAuth} = this.props;
 
-              </div>
+      if (!isAuth) {
+        return <Redirect to={AppRoutes.LOGIN} />;
+      }
+
+      const {
+        movie,
+        error,
+        onRatingChange,
+        onTextChange
+      } = this.props;
+
+      if (!movie) {
+        return <Loader />;
+      }
+
+      const {
+        id,
+        title,
+        backgroundImage,
+        backgroundColor,
+        posterImage
+      } = movie;
+
+      return (
+        <section className="movie-card movie-card--full" style={{backgroundColor: `${backgroundColor}`}}>
+
+          <div className="movie-card__header">
+            <div className="movie-card__bg">
+              <img src={backgroundImage} alt={title} />
             </div>
-            <div className="add-review__text" style={{background: `rgba(0,0,0,.26)`}}>
-              <textarea
-                className="add-review__textarea"
-                name="review-text"
-                id="review-text"
-                placeholder="Review text"
-                defaultValue={``}
-                onChange={onTextChange}
-                ref={this._textRef}
-              />
-              <div className="add-review__submit">
-                <button
-                  className="add-review__btn"
-                  type="submit"
-                  disabled
-                  ref={this._submitRef}
-                >
+            <h1 className="visually-hidden">WTW</h1>
+
+            <header className="page-header">
+
+              <Logo />
+
+              <Breadcrumbs id={id} movieTitle={title} />
+
+              <UserBlock />
+            </header>
+
+            <div className="movie-card__poster movie-card__poster--small">
+              <img src={posterImage} alt={title} width={218} height={327} />
+            </div>
+
+          </div>
+          <div className="add-review">
+            <form
+              action="#"
+              className="add-review__form"
+              onSubmit={this._handleSubmit}
+              ref={this._formRef}
+            >
+              <div className="rating">
+                <div className="rating__stars">
+
+                  {Array.from(Array(MAX_RATING)).map((_, index) => {
+                    const starsCount = index + 1;
+                    return (
+                      <React.Fragment key={starsCount}>
+                        <input
+                          className="rating__input"
+                          id={`star-${starsCount}`}
+                          type="radio"
+                          name="rating"
+                          value={starsCount}
+                          onChange={onRatingChange}
+                        />
+                        <label className="rating__label" htmlFor={`star-${starsCount}`}>Rating {starsCount}</label>
+                      </React.Fragment>
+                    );
+                  })}
+
+
+                </div>
+              </div>
+              <div className="add-review__text" style={{background: `rgba(0,0,0,.26)`}}>
+                <textarea
+                  className="add-review__textarea"
+                  name="review-text"
+                  id="review-text"
+                  placeholder="Review text"
+                  defaultValue={``}
+                  onChange={onTextChange}
+                  ref={this._textRef}
+                />
+                <div className="add-review__submit">
+                  <button
+                    className="add-review__btn"
+                    type="submit"
+                    disabled
+                    ref={this._submitRef}
+                  >
                   Post
-                </button>
+                  </button>
+                </div>
               </div>
-            </div>
-          </form>
-        </div>
-      </section>
-    );
-  }
+            </form>
+          </div>
+        </section>
+      );
+    }
 }
 
 const mapStateToProps = (state) => ({

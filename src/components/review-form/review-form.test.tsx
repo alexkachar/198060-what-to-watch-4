@@ -18,25 +18,25 @@ it(`ReviewForm renders correctly`, () => {
 
   const tree = renderer
     .create(
-      <Provider store={MOCK_STORE}>
-        <BrowserRouter>
-          <ReviewForm
-            movieId={1}
-            isAuth={true}
-            movie={MOVIE}
-            sending={false}
-            error={false}
-            rating={4}
-            isRatingValid={true}
-            text={TEXT}
-            isTextValid={true}
-            onRatingChange={jest.fn()}
-            onTextChange={jest.fn()}
-            onSetSendingFlag={jest.fn()}
-            onSubmitReview={jest.fn()}
-          />
-        </BrowserRouter>
-      </Provider>, {
+        <Provider store={MOCK_STORE}>
+          <BrowserRouter>
+            <ReviewForm
+              movieId={1}
+              isAuth={true}
+              movie={MOVIE}
+              sending={false}
+              error={false}
+              rating={4}
+              isRatingValid={true}
+              text={TEXT}
+              isTextValid={true}
+              onRatingChange={jest.fn()}
+              onTextChange={jest.fn()}
+              onSetSendingFlag={jest.fn()}
+              onSubmitReview={jest.fn()}
+            />
+          </BrowserRouter>
+        </Provider>, {
           createNodeMock: () => document.createElement(`div`)
         })
     .toJSON();
