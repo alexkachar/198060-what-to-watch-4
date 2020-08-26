@@ -2,9 +2,10 @@ import * as React from 'react';
 
 import {MovieTabs, tabs} from '../../constants';
 import Movie from '../../interfaces/movie';
+import withActiveTab from '../../hocs/with-active-tab/with-active-tab';
 import MovieOverview from '../movie-overview/movie-overview';
 import MovieDetails from '../movie-details/movie-details';
-import withActiveTab from '../../hocs/with-active-tab/with-active-tab';
+import MovieReviews from '../movie-reviews/movie-reviews';
 
 interface Props {
   movie: Movie;
@@ -21,7 +22,7 @@ class MovieInfo extends React.PureComponent<Props> {
       case MovieTabs.DETAILS:
         return <MovieDetails movie={movie} />;
       case MovieTabs.REVIEWS:
-        return <MovieOverview movie={movie} />;
+        return <MovieReviews movieId={movie.id} />;
       default:
         return <MovieOverview movie={movie} />;
     }

@@ -1,26 +1,67 @@
 import * as React from 'react';
+import {connect} from 'react-redux';
+
+import {getReviews} from '../../store/reducers/review/selectors';
+import ReviewOperation from '../../store/operations/review/review';
 
 import ReviewCard from '../review-card/review-card';
 import Review from '../../interfaces/review';
+import Loader from '../loader/loader';
 
 interface Props {
+  movieId: number | string;
   reviews: Review[];
+  onRequestReviews: (movieId: string | number) => void;
 }
 
-const MovieReviews = (props: Props) => {
+class MovieReviews extends React.PureComponent<Props> {
 
-  const {reviews} = props;
+  componentDidMount() {
+    const {onRequestReviews, movieId} = this.props;
+    onRequestReviews(movieId);
+  }
 
-  return (
-    <div className="movie-card__reviews movie-card__row">
+  componentDidUpdate(prevProps) {
+    const {onRequestReviews, movieId} = this.props;
 
-      <div className="movie-card__reviews-col">
+    if (movieId !== prevProps.movieId) {
+      onRequestReviews(movieId);
+    }
+  }
 
-        {reviews.map((review) => <ReviewCard review={review} key={review.id} />)}
+  render() {
 
+    const {reviews} = this.props;
+
+    if (!reviews) {
+      return <Loader />;
+    }
+
+    return (
+      <div className="movie-card__reviews movie-card__row">
+
+        <div className="movie-card__reviews-col">
+
+          {reviews.map((review) => <ReviewCard review={review} key={review.id} />)}
+
+        </div>
       </div>
-    </div>
-  );
-};
+    );
+  }
 
-export default MovieReviews;
+}
+
+const mapStateToProps = (state) => ({
+  reviews: getReviews(state),
+});
+
+const mapDispatchToProps = (dispatch) => ({
+
+  onRequestReviews: (movieId) => {
+    dispatch(ReviewOperation.loadReviews(movieId));
+  }
+
+});
+
+export {MovieReviews};
+export default connect(mapStateToProps, mapDispatchToProps)(MovieReviews);
