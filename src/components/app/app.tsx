@@ -90,7 +90,6 @@ const App = (props: Props) => {
             return (
               <ReviewForm
                 movieId={id}
-                isAuth={isAuth}
               />
             );
           }}

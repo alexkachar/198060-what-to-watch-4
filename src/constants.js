@@ -5,7 +5,7 @@ export const AVATAR_BASE = `https://htmlacademy-react-3.appspot.com`;
 export const AppRoutes = {
   MAIN: `/`,
   MOVIE: `/film/:id`,
-  ADD_REVIEW: `/films/:id/review`,
+  ADD_REVIEW: `/film/:id/review`,
   LOGIN: `/signin`,
   FAVORITES: `/favorites`,
 };
@@ -47,6 +47,19 @@ export const LoginErrorMesseges = {
   EMAIL: `Please enter a valid email address`,
   PASSWORD: `Sorry, the password is too short`,
   LOGIN_FAILED: `We can’t recognize this email and password combination. Please try again.`
+};
+
+export const SEND_REVIEW_ERROR = `Sorry, can’t sugmit your review. Please try again later.`;
+
+export const Ratings = {
+  DEFAULT: 3,
+  MIN: 1,
+  MAX: 5
+};
+
+export const ReviewLenghts = {
+  MIN: 50,
+  MAX: 400
 };
 
 export const Months = [

@@ -13,7 +13,7 @@ import {getAuthFlag} from '../../store/reducers/user/selectors';
 import UiActionCreator from '../../store/actions/ui/ui';
 
 import {reduceMovies, filterMoviesByGenre, excludeMovieById} from '../../utils';
-import {RECOMENDED_MOVIES_LIMIT, AppRoutes} from '../../constants';
+import {RECOMENDED_MOVIES_LIMIT} from '../../constants';
 
 import Movie from '../../interfaces/movie';
 import MovieInfo from '../movie-info/movie-info';
@@ -97,7 +97,7 @@ class MoviePage extends React.PureComponent<Props> {
                     isFavorite={isFavorite}
                     onSetFavoriteStatus={onSetFavoriteStatus}
                   />
-                  <Link to={AppRoutes.ADD_REVIEW} className="btn movie-card__button">Add review</Link>
+                  <Link to={`/film/${id}/review`} className="btn movie-card__button">Add review</Link>
                 </div>
               </div>
             </div>

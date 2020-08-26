@@ -1,4 +1,5 @@
 import * as React from 'react';
+import {Ratings, ReviewLenghts} from '../../constants';
 
 interface State {
   rating: number;
@@ -15,7 +16,7 @@ const withFormValidation = (Component) => {
       super(props);
 
       this.state = {
-        rating: 0,
+        rating: Ratings.DEFAULT,
         text: ``,
         isRatingValid: false,
         isTextValid: false
@@ -50,7 +51,7 @@ const withFormValidation = (Component) => {
 
     _checkTextValidity() {
       const {text} = this.state;
-      const isTextValid = text.length >= 50 && text.length <= 400;
+      const isTextValid = text.length >= ReviewLenghts.MIN && text.length <= ReviewLenghts.MAX;
 
       this.setState({
         isTextValid
@@ -59,7 +60,7 @@ const withFormValidation = (Component) => {
 
     _checkRatingValidity() {
       const {rating} = this.state;
-      const isRatingValid = rating >= 1 && rating <= 5;
+      const isRatingValid = rating >= Ratings.MIN && rating <= Ratings.MAX;
 
       this.setState({
         isRatingValid

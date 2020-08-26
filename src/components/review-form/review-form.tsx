@@ -5,18 +5,18 @@ import {compose} from 'recompose';
 
 import {AppRoutes} from '../../constants';
 import {getMovieById} from '../../store/reducers/ui/selectors';
+import {getAuthFlag} from '../../store/reducers/user/selectors';
 import {getSendingFlag, getErrorFlag} from '../../store/reducers/review/selectors';
 import ReviewOperation from '../../store/operations/review/review';
 import ActionCreator from '../../store/actions/review/review';
 import withFormValidation from '../../hocs/with-form-validation/with-form-validation';
+import {SEND_REVIEW_ERROR, Ratings, ReviewLenghts} from '../../constants';
 
 import Logo from '../partials/logo/logo';
 import UserBlock from '../partials/user-block/user-block';
 import Breadcrumbs from '../partials/breadcrumbs/breadcrumbs';
 import Loader from '../loader/loader';
 import Movie from '../../interfaces/movie';
-
-const MAX_RATING = 5;
 
 interface Props {
   movieId: number | string;
@@ -115,6 +115,7 @@ class ReviewForm extends React.PureComponent <Props> {
 
       const {
         movie,
+        rating,
         error,
         onRatingChange,
         onTextChange
@@ -162,10 +163,11 @@ class ReviewForm extends React.PureComponent <Props> {
               onSubmit={this._handleSubmit}
               ref={this._formRef}
             >
+              {error && <p>{SEND_REVIEW_ERROR}</p>}
               <div className="rating">
                 <div className="rating__stars">
 
-                  {Array.from(Array(MAX_RATING)).map((_, index) => {
+                  {Array.from(Array(Ratings.MAX)).map((_, index) => {
                     const starsCount = index + 1;
                     return (
                       <React.Fragment key={starsCount}>
@@ -175,6 +177,7 @@ class ReviewForm extends React.PureComponent <Props> {
                           type="radio"
                           name="rating"
                           value={starsCount}
+                          checked={rating === starsCount}
                           onChange={onRatingChange}
                         />
                         <label className="rating__label" htmlFor={`star-${starsCount}`}>Rating {starsCount}</label>
@@ -193,6 +196,7 @@ class ReviewForm extends React.PureComponent <Props> {
                   placeholder="Review text"
                   defaultValue={``}
                   onChange={onTextChange}
+                  maxLength={ReviewLenghts.MAX}
                   ref={this._textRef}
                 />
                 <div className="add-review__submit">
@@ -214,6 +218,7 @@ class ReviewForm extends React.PureComponent <Props> {
 }
 
 const mapStateToProps = (state) => ({
+  isAuth: getAuthFlag(state),
   movie: getMovieById(state),
   sending: getSendingFlag(state),
   error: getErrorFlag(state),
