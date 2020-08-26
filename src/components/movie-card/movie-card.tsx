@@ -2,18 +2,32 @@ import * as React from 'react';
 import Movie from '../../interfaces/movie';
 import {Link} from 'react-router-dom';
 
+import withToggleActive from '../../hocs/with-toggle-active/with-toggle-active';
+import TrailerPlayer from '../trailer-player/trailer-player';
+
 interface Props {
   movie: Movie;
+  isActive: boolean;
+  onSetActive: () => void;
+  onSetInactive: () => void;
 }
 
 const MoviesList = (props: Props) => {
-  const {movie} = props;
-  const {id, title, previewImage} = movie;
+  const {movie, isActive, onSetActive, onSetInactive} = props;
+  const {id, title, previewImage, previewVideoLink} = movie;
   return (
-    <article className="small-movie-card catalog__movies-card">
+    <article
+      className="small-movie-card catalog__movies-card"
+      onMouseEnter={onSetActive}
+      onMouseLeave={onSetInactive}
+    >
       <Link to={`/film/${id}`}>
         <div className="small-movie-card__image">
-          <img src={previewImage} alt={title} width={280} height={175} />
+          <TrailerPlayer
+            previewImage={previewImage}
+            previewVideoLink={previewVideoLink}
+            isPlaying={isActive}
+          />
         </div>
       </Link>
       <h3 className="small-movie-card__title">
@@ -28,4 +42,4 @@ const MoviesList = (props: Props) => {
   );
 };
 
-export default MoviesList;
+export default withToggleActive(MoviesList);

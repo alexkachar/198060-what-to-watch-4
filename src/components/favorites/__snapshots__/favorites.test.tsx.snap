@@ -81,6 +81,8 @@ exports[`MoviePage renders correctly 1`] = `
     >
       <article
         className="small-movie-card catalog__movies-card"
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
       >
         <a
           href="/film/1"
@@ -89,11 +91,14 @@ exports[`MoviePage renders correctly 1`] = `
           <div
             className="small-movie-card__image"
           >
-            <img
-              alt="The Grand Budapest Hotel"
-              height={175}
-              src="img/the-grand-budapest-hotel.jpg"
-              width={280}
+            <video
+              height="175"
+              muted={true}
+              onMouseEnter={[Function]}
+              onMouseLeave={[Function]}
+              poster="img/the-grand-budapest-hotel.jpg"
+              src="https://some-link"
+              width="280"
             />
           </div>
         </a>
@@ -116,6 +121,8 @@ exports[`MoviePage renders correctly 1`] = `
       </article>
       <article
         className="small-movie-card catalog__movies-card"
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
       >
         <a
           href="/film/2"
@@ -124,11 +131,14 @@ exports[`MoviePage renders correctly 1`] = `
           <div
             className="small-movie-card__image"
           >
-            <img
-              alt="Moonrise Kingdom"
-              height={175}
-              src="https://htmlacademy-react-3.appspot.com/wtw/static/film/preview/moonrise-kingdom.jpg"
-              width={280}
+            <video
+              height="175"
+              muted={true}
+              onMouseEnter={[Function]}
+              onMouseLeave={[Function]}
+              poster="https://htmlacademy-react-3.appspot.com/wtw/static/film/preview/moonrise-kingdom.jpg"
+              src="https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4"
+              width="280"
             />
           </div>
         </a>
@@ -151,6 +161,8 @@ exports[`MoviePage renders correctly 1`] = `
       </article>
       <article
         className="small-movie-card catalog__movies-card"
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
       >
         <a
           href="/film/15"
@@ -159,11 +171,14 @@ exports[`MoviePage renders correctly 1`] = `
           <div
             className="small-movie-card__image"
           >
-            <img
-              alt="Fantastic Beasts: The Crimes of Grindelwald"
-              height={175}
-              src="https://htmlacademy-react-3.appspot.com/wtw/static/film/preview/fantastic-beasts-the-crimes-of-grindelwald.jpg"
-              width={280}
+            <video
+              height="175"
+              muted={true}
+              onMouseEnter={[Function]}
+              onMouseLeave={[Function]}
+              poster="https://htmlacademy-react-3.appspot.com/wtw/static/film/preview/fantastic-beasts-the-crimes-of-grindelwald.jpg"
+              src="https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm"
+              width="280"
             />
           </div>
         </a>
