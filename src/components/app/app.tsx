@@ -18,6 +18,7 @@ import MoviePage from '../movie-page/movie-page';
 import Login from '../login/login';
 import Favorites from '../favorites/favorites';
 import ReviewForm from '../review-form/review-form';
+import VideoPlayer from '../video-player/video-player';
 
 interface Props {
   movies: Movie[];
@@ -114,6 +115,18 @@ const App = (props: Props) => {
             );
           }}
         />
+
+        <Route exact path={AppRoutes.PLAYER}
+          render={({match}) => {
+            const {id} = match.params;
+            return (
+              <VideoPlayer
+                movieId={id}
+              />
+            );
+          }}
+        />
+
       </Switch>
     </BrowserRouter>
   );
@@ -147,6 +160,11 @@ const mapDispatchToProps = (dispatch) => ({
   onSetFavoriteStatus(movieId, isFavorite: boolean) {
     dispatch(DataOperation.setFavoriteStatus(movieId, isFavorite));
   },
+
+  onSetMovieId: (movieId) => {
+    const newMovieId = parseInt(movieId, 10);
+    dispatch(UiActionCreator.setMovieId(newMovieId));
+  }
 
 });
 

@@ -5,6 +5,7 @@ export const AVATAR_BASE = `https://htmlacademy-react-3.appspot.com`;
 export const AppRoutes = {
   MAIN: `/`,
   MOVIE: `/film/:id`,
+  PLAYER: `/player/:id`,
   ADD_REVIEW: `/film/:id/review`,
   LOGIN: `/signin`,
   FAVORITES: `/favorites`,

@@ -74,3 +74,13 @@ export const formatUser = (user) => ({
   name: user.name,
   avatarUrl: user.avatar_url,
 });
+
+export const formatTime = (time) => {
+  time = Number(time);
+
+  const hours = Math.floor(time / 3600);
+  const minutes = Math.floor(time % 3600 / 60);
+  const seconds = Math.floor(time % 3600 % 60);
+
+  return (`0` + hours).slice(-2) + `:` + (`0` + minutes).slice(-2) + `:` + (`0` + seconds).slice(-2);
+};
