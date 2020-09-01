@@ -88,7 +88,7 @@ class VideoPlayer extends React.PureComponent<Props> {
 
     const {
       title,
-      posterImage,
+      previewImage,
       videoLink
     } = movie;
 
@@ -97,7 +97,7 @@ class VideoPlayer extends React.PureComponent<Props> {
         <video
           className="player__video"
           ref={this._videoRef}
-          poster={posterImage}
+          poster={previewImage}
           src={videoLink}
           onCanPlay={onSetDuration}
           onTimeUpdate={onTimeUpdate}

@@ -2,17 +2,15 @@ import * as React from 'react';
 import * as renderer from 'react-test-renderer';
 import {BrowserRouter} from 'react-router-dom';
 
-import AddButton from './add-button';
+import PlayerLinkButton from './player-link-button';
 
-it(`AddButton renders correctly`, () => {
+it(`PlayerLinkButton renders correctly`, () => {
   const tree = renderer
     .create(
         <BrowserRouter>
-          <AddButton
-            id={1}
-            isAuth={true}
-            isFavorite={false}
-            onSetFavoriteStatus={jest.fn()} />
+          <PlayerLinkButton
+            movieId={`1`}
+          />
         </BrowserRouter>, {
           createNodeMock: () => document.createElement(`div`)
         })

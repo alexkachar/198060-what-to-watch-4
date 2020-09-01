@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Footer renders correctly 1`] = `
+exports[`AddButton renders correctly 1`] = `
 <a
   className="btn btn--list movie-card__button"
   href="/"

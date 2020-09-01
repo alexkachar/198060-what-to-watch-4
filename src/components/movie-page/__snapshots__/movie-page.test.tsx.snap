@@ -108,9 +108,10 @@ exports[`MoviePage renders correctly 1`] = `
           <div
             className="movie-card__buttons"
           >
-            <button
+            <a
               className="btn btn--play movie-card__button"
-              type="button"
+              href="/player/1"
+              onClick={[Function]}
             >
               <svg
                 height={19}
@@ -124,7 +125,7 @@ exports[`MoviePage renders correctly 1`] = `
               <span>
                 Play
               </span>
-            </button>
+            </a>
             <a
               className="btn btn--list movie-card__button"
               href="/"

@@ -4,6 +4,7 @@ import Header from '../header/header';
 import Loader from '../loader/loader';
 import Movie from '../../interfaces/movie';
 import AddButton from '../partials/add-button/add-button';
+import PlayerLinkButton from '../partials/player-link-button/player-link-button';
 
 interface Props {
   promoMovie: Movie;
@@ -47,12 +48,7 @@ const PromoMovieCard = (props: Props) => {
               <span className="movie-card__year">{released}</span>
             </p>
             <div className="movie-card__buttons">
-              <button className="btn btn--play movie-card__button" type="button">
-                <svg viewBox="0 0 21 19" width={21} height={19}>
-                  <use xlinkHref="#play-s" />
-                </svg>
-                <span>Play</span>
-              </button>
+              <PlayerLinkButton id={id} />
               <AddButton
                 id={id}
                 isAuth={isAuth}
