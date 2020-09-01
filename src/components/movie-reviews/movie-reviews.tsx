@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 
 import {getReviews} from '../../store/reducers/review/selectors';
 import ReviewOperation from '../../store/operations/review/review';
+import {checkIfEven, checkIfOdd} from '../../utils';
 
 import ReviewCard from '../review-card/review-card';
 import Review from '../../interfaces/review';
@@ -42,8 +43,12 @@ class MovieReviews extends React.PureComponent<Props> {
 
         <div className="movie-card__reviews-col">
 
-          {reviews.map((review) => <ReviewCard review={review} key={review.id} />)}
+          {reviews.map((review, i) => checkIfOdd(i + 1) ? <ReviewCard review={review} key={review.id} /> : null)}
 
+        </div>
+
+        <div className="movie-card__reviews-col">
+          {reviews.map((review, i) => checkIfEven(i + 1) ? <ReviewCard review={review} key={review.id} /> : null)}
         </div>
       </div>
     );

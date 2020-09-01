@@ -18,7 +18,7 @@ const ReviewCard = (props: Props) => {
   } = review;
 
   return (
-    <div className="review">
+    <div className="review" style={{borderBottomColor: `rgba(255,255,255,.24)`}}>
       <blockquote className="review__quote">
         <p className="review__text">{comment}</p>
         <footer className="review__details">

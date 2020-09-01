@@ -84,3 +84,8 @@ export const formatTime = (time) => {
 
   return (`0` + hours).slice(-2) + `:` + (`0` + minutes).slice(-2) + `:` + (`0` + seconds).slice(-2);
 };
+
+
+export const checkIfEven = (number) => number % 2 === 0;
+
+export const checkIfOdd = (number) => Math.abs(number % 2) === 1;

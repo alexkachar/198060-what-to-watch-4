@@ -3,6 +3,11 @@
 exports[`Review renders correctly 1`] = `
 <div
   className="review"
+  style={
+    Object {
+      "borderBottomColor": "rgba(255,255,255,.24)",
+    }
+  }
 >
   <blockquote
     className="review__quote"

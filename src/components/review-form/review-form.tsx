@@ -86,8 +86,9 @@ class ReviewForm extends React.PureComponent <Props> {
       const form = this._formRef.current;
       const {error, sending} = this.props;
 
-      if (sending && !error) {
+      if (!sending && !error) {
         form.reset();
+        history.back();
       }
     }
 
