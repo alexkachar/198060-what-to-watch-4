@@ -1,10 +1,24 @@
-# Личный проект «Что посмотреть» [![Build status][travis-image]][travis-url]
+"What to Watch" portfolio project
 
-* Студент: [Александр Качар](https://up.htmlacademy.ru/react/4/user/198060).
+Main technologies:
+React,
+Redux,
+TypeScript,
+Axios,
+ReactRouter,
+Jest,
+Enzyme,
 
-_Не удаляйте и не изменяйте папки и файлы:_
+Projects npm scripts:
+
+start: "webpack-dev-server"
+build: "webpack --mode production",
+test: "npm run eslint && npm run test.jest",
+
+eslint: "npm run eslint.js && npm run eslint.ts",
+eslint.js: "eslint --ext .jsx --ext .js src/",
+eslint.ts: "eslint --config .eslintrc-ts.yml --ext .tsx src/",
+test.jest: "jest",
+
+_Do not remove and change folders:_
 _`.editorconfig`, `.gitattributes`, `.gitignore`, `.travis.yml`, `package.json`._
-
-
-[travis-image]: https://travis-ci.com/htmlacademy-react/198060-what-to-watch-4.svg?branch=master
-[travis-url]: https://travis-ci.com/htmlacademy-react/198060-what-to-watch-4
