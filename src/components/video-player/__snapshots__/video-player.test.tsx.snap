@@ -8,7 +8,7 @@ exports[`VideoPlayer renders correctly 1`] = `
     className="player__video"
     onCanPlay={[MockFunction]}
     onTimeUpdate={[MockFunction]}
-    poster="img/the-grand-budapest-hotel-poster.jpg"
+    poster="img/the-grand-budapest-hotel-bg.jpg"
     src="https://some-link"
   />
   <a

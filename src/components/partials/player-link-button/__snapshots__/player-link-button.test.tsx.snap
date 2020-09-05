@@ -3,7 +3,7 @@
 exports[`PlayerLinkButton renders correctly 1`] = `
 <a
   className="btn btn--play movie-card__button"
-  href="/player/undefined"
+  href="/player/1"
   onClick={[Function]}
 >
   <svg

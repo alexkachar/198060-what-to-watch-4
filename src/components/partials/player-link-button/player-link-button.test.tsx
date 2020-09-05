@@ -9,7 +9,7 @@ it(`PlayerLinkButton renders correctly`, () => {
     .create(
         <BrowserRouter>
           <PlayerLinkButton
-            movieId={`1`}
+            id={`1`}
           />
         </BrowserRouter>, {
           createNodeMock: () => document.createElement(`div`)
