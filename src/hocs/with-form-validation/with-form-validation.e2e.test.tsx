@@ -16,7 +16,7 @@ describe(`withFormValidation hoc e2e tests`, () => {
 
     expect(wrapper.state(`rating`)).toBe(3);
     expect(wrapper.state(`text`)).toBe(``);
-    expect(wrapper.state(`isRatingValid`)).toBe(false);
+    expect(wrapper.state(`isRatingValid`)).toBe(true);
     expect(wrapper.state(`isTextValid`)).toBe(false);
   });
 

@@ -18,7 +18,7 @@ const withFormValidation = (Component) => {
       this.state = {
         rating: Ratings.DEFAULT,
         text: ``,
-        isRatingValid: false,
+        isRatingValid: true,
         isTextValid: false
       };
 
